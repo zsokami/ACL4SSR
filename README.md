@@ -1,4 +1,7 @@
-自定义转换配置文件用于 Clash 等客户端 配置转换 订阅转换 规则转换
+### ACL4SSR_Online_Full_Mannix
+自定义转换配置文件 https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Mannix.ini
+
+用于 Clash 等客户端 配置转换 订阅转换 规则转换
 
 修改自 https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full.ini
 
