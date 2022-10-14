@@ -47,3 +47,5 @@ url-test
 📺 B站 📺 動畫瘋 默认选择 🇹🇼 台湾
 
 正则匹配大小写
+
+LocalAreaNetwork.list 使用 DIRECT
