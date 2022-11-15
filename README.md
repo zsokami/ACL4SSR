@@ -1,7 +1,7 @@
 ### ACL4SSR_Online_Full_Mannix
-自定义转换配置文件 https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Mannix.ini
+自定义 Clash 配置模板 https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Mannix.ini
 
-用于 *Clash* 等客户端 配置转换 订阅转换 规则转换
+可作为 订阅转换 配置转换 规则转换 的远程配置
 
 修改自 https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full.ini
 
@@ -37,7 +37,7 @@
 - 🛑 广告拦截 + 🍃 应用净化 -> 💩 广告
 
 新增
-- 🇨🇳 中国
+- 🇨🇳 中国 (含 🇭🇰 香港 🇹🇼 台湾)
 - 🎏 其他
 
 url-test
@@ -47,6 +47,6 @@ url-test
 
 📺 B站 📺 動畫瘋 默认选择 🇹🇼 台湾
 
-正则匹配大小写
+正则匹配大小写，更好的匹配中转节点
 
 LocalAreaNetwork.list 使用 DIRECT
