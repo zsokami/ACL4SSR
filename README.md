@@ -49,6 +49,6 @@ url-test
 
 📺 ‍動畫瘋 默认选择 🇹🇼 ‍台湾
 
-正则匹配大小写，更好的匹配中转节点
+正则匹配大小写、简繁体，更好的匹配中转、IPLC节点
 
 LocalAreaNetwork.list 使用 DIRECT
