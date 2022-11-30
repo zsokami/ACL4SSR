@@ -1,9 +1,22 @@
-### ACL4SSR_Online_Full_Mannix
+## ACL4SSR_Online_Full_Mannix.ini
+
 自定义 Clash 配置模板 https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Mannix.ini
 
 可作为 订阅转换 配置转换 规则转换 的远程配置
 
 修改自 https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full.ini
+
+---
+
+### V2
+
+自带旗帜 emoji 添加逻辑，原名不包含旗帜 emoji 才添加，原名已包含旗帜 emoji 则不添加
+
+需去除订阅转换链接中的参数 `emoji=true/false` 才能生效，参考例子：
+
+`https://api.v1.mk/sub?target=clash&udp=true&scv=true&config=https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Mannix.ini&url={原订阅链接}`
+
+---
 
 移除
 - 📢 谷歌FCM
