@@ -1,0 +1,15 @@
+name: update_url.py
+on:
+  push:
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Prepare
+        run: pip install requests
+      - name: Run update_url.py
+        run: python update_url.py
