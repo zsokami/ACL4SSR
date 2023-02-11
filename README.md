@@ -1,6 +1,6 @@
 ## ACL4SSR_Online_Full_Mannix.ini
 
-自定义 Clash 配置模板 https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Mannix.ini
+自定义 Clash 配置模板 https://goo.gs/config
 
 可作为 订阅转换 配置转换 规则转换 的远程配置
 
@@ -14,7 +14,7 @@
 
 **需去除订阅转换链接中的参数 `emoji=true/false` 才能生效**，参考例子：
 
-`https://api.v1.mk/sub?target=clash&udp=true&scv=true&config=https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Mannix.ini&url={原订阅链接}`
+`https://api.v1.mk/sub?target=clash&udp=true&scv=true&config=https://goo.gs/config&url={原订阅链接}`
 
 ---
 
