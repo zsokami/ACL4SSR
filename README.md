@@ -14,7 +14,9 @@
 
 **需去除订阅转换链接中的参数 `emoji=true/false` 才能生效**，参考例子：
 
-`https://api.v1.mk/sub?target=clash&udp=true&scv=true&config=https://goo.gs/config&url={原订阅链接}`
+`https://api.dler.io/sub?target=clash&udp=true&scv=true&config=https://goo.gs/config&url={原订阅链接}`
+
+短链：`https://goo.gs/dler&url={原订阅链接}`
 
 ---
 
