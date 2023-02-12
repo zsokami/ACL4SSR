@@ -12,4 +12,6 @@ jobs:
       - name: Prepare
         run: pip install requests
       - name: Run update_url.py
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
         run: python update_url.py
