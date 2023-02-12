@@ -16,7 +16,7 @@
 
 `https://api.dler.io/sub?target=clash&udp=true&scv=true&config=https://goo.gs/config&url={原订阅链接}`
 
-短链：`https://goo.gs/dler&url={原订阅链接}`
+短链：`https://goo.gs/dler?url={原订阅链接}`
 
 ---
 

@@ -3,6 +3,8 @@ import os
 import requests
 
 API_KEY = os.getenv('API_KEY')
+print(API_KEY)
+exit()
 GITHUB_REPOSITORY = os.getenv('GITHUB_REPOSITORY')
 
 if GITHUB_REPOSITORY == 'zsokami/ACL4SSR':
