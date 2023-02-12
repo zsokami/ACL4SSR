@@ -2,13 +2,14 @@ import os
 
 import requests
 
-API_KEY = os.getenv('API_KEY')
 GITHUB_REPOSITORY = os.getenv('GITHUB_REPOSITORY')
 
 if GITHUB_REPOSITORY == 'zsokami/ACL4SSR':
+    API_KEY = os.getenv('API_KEY')
     alias = 'config'
     alias_sc = 'dler'
 else:
+    API_KEY = 'wMZJfKSns5lLIZ7if32owHe9w06EVAV6ZjbnCoeFs65PNN95lrwDxnKSGAMV'
     repo = GITHUB_REPOSITORY.replace('/', '__')
     alias = f"gh__{repo}"
     alias_sc = f"gh__{repo}__sc"
@@ -26,9 +27,13 @@ def upsert(alias, url):
     items = session.get(api, params={'search': alias, 'by': 'alias'}).json()['data']
     item = next((item for item in items if item['alias'] == alias), None)
     if item:
-        print(session.put(f"{api}/{item['id']}", data={'url': url}).ok)
+        r = session.put(f"{api}/{item['id']}", data={'url': url})
     else:
-        print(session.post(api, data={'url': url, 'alias': alias}).ok)
+        r = session.post(api, data={'url': url, 'alias': alias})
+    if r.ok:
+        print(r.json()['data']['short_url'])
+    else:
+        print(r.text)
 
 
 upsert(alias, url)
