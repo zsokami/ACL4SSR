@@ -1,5 +1,6 @@
 name: update_url.py
 on:
+  workflow_dispatch:
   push:
 jobs:
   main:
