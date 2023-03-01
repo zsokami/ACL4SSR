@@ -54,6 +54,7 @@
 新增
 - 🇨🇳 中国 (含 🇭🇰 香港 🇹🇼 台湾)
 - 🎏 其他
+- 🤖 ‍OpenAI
 
 url-test
 - 延迟测试链接 http://www.gstatic.com/generate_204 -> https://i.ytimg.com/generate_204
