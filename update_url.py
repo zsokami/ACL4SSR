@@ -99,7 +99,7 @@ if DDAL_EMAIL and DDAL_PASSWORD:
         alias = 'config'
         alias_sc = 'dler'
     else:
-        repo = GITHUB_REPOSITORY.replace('/', '-')
+        repo = '-'.join(re_ddal_alias.findall(GITHUB_REPOSITORY))
         alias = f"gh-{repo}"
         alias_sc = f"gh-{repo}-sc"
 
