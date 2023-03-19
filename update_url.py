@@ -85,6 +85,7 @@ if DDAL_EMAIL and DDAL_PASSWORD:
                 short = next((item['short'] for item in self.search(url) if item['id'] == id), None)
                 if short:
                     break
+                print(f'更新失败，正在重试... (id = {repr(id)}, url = {repr(url)})')
             return short
 
         def upsert(self, alias, url) -> str:
