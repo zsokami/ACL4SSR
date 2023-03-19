@@ -11,8 +11,9 @@ jobs:
         with:
           python-version: '3.10'
       - name: Prepare
-        run: pip install requests
+        run: pip install requests beautifulsoup4
       - name: Run update_url.py
         env:
-          API_KEY: ${{ secrets.API_KEY }}
+          DDAL_EMAIL: ${{ secrets.DDAL_EMAIL }}
+          DDAL_PASSWORD: ${{ secrets.DDAL_PASSWORD }}
         run: python update_url.py
