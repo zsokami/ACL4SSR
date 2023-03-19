@@ -67,8 +67,8 @@ if DDAL_EMAIL and DDAL_PASSWORD:
                 raise Exception(f"{r['msg']} (alias = {repr(alias)}, url = {repr(url)})")
             return r['short']
 
-        def update(self, id, url) -> str:
-            while True:
+        def update(self, id, alias, url) -> str:
+            for _ in range(10):
                 with self.__token_lock:
                     bs = BeautifulSoup(self.__session.get(f'https://dd.al/user/edit/{id}').text, 'html.parser')
                     token = bs.find('input', {'name': 'token'})
@@ -82,17 +82,18 @@ if DDAL_EMAIL and DDAL_PASSWORD:
                 loc = r.headers.get('Location')
                 if not (loc and urlsplit(loc).path != '/user'):
                     raise Exception(f'loc = {repr(loc)}')
-                short = next((item['short'] for item in self.search(url) if item['id'] == id), None)
-                if short:
+                item = next((item for item in self.search(alias) if item['id'] == id), None)
+                if item and item['original'] == url:
                     break
-                print(f'更新失败，正在重试... (id = {repr(id)}, url = {repr(url)})')
-            return short
+            else:
+                raise Exception(f'尝试 10 次更新 url 均失败 (id = {repr(id)}, url = {repr(url)})')
+            return item['short']
 
         def upsert(self, alias, url) -> str:
             self.raise_for_alias(alias)
             id = next((item['id'] for item in self.search(alias) if urlsplit(item['short']).path[1:] == alias), None)
             if id:
-                return self.update(id, url)
+                return self.update(id, alias, url)
             else:
                 return self.insert(alias, url)
 
