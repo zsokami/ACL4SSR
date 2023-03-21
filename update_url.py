@@ -99,29 +99,36 @@ if DDAL_EMAIL and DDAL_PASSWORD:
 
     if GITHUB_REPOSITORY == 'zsokami/ACL4SSR':
         alias = 'config'
-        alias_sc = 'dler'
+        alias_dler = 'dler'
+        alias_scs = 'scs'
     else:
         repo = '-'.join(re_ddal_alias.findall(GITHUB_REPOSITORY))
         alias = f"gh-{repo}"
-        alias_sc = f"gh-{repo}-sc"
+        alias_dler = f"gh-{repo}-dler"
+        alias_scs = f"gh-{repo}-scs"
 
     url = f"https://cdn.jsdelivr.net/gh/{GITHUB_REPOSITORY}@{GITHUB_SHA}/{ini_file_name}"
-    url_sc = f"https://api.dler.io/sub?target=clash&udp=true&scv=true&config={url}"
+    url_dler = f"https://api.dler.io/sub?target=clash&udp=true&scv=true&config={url}"
+    url_scs = f"https://api.subcsub.com/sub?target=clash&udp=true&scv=true&config={url}"
 
     ddal = DDAL()
     ddal.login(DDAL_EMAIL, DDAL_PASSWORD)
 
     upsert_args = [
         (alias, url),
-        (alias_sc, url_sc)
+        (alias_dler, url_dler),
+        (alias_scs, url_scs)
     ]
 
     with ThreadPoolExecutor(len(upsert_args)) as executor:
-        url, url_sc = executor.map(ddal.upsert, *zip(*upsert_args))
+        url, url_dler, url_scs = executor.map(ddal.upsert, *zip(*upsert_args))
     print(url)
-    print(f'{url_sc}?url=')
+    print(f'{url_dler}?url=')
+    print(f'{url_scs}?url=')
 else:
     url = f"https://cdn.staticaly.com/gh/{GITHUB_REPOSITORY}/{GITHUB_REF_NAME}/{ini_file_name}"
-    url_sc = f"https://api.dler.io/sub?target=clash&udp=true&scv=true&config={url}&url="
+    url_dler = f"https://api.dler.io/sub?target=clash&udp=true&scv=true&config={url}&url="
+    url_scs = f"https://api.subcsub.com/sub?target=clash&udp=true&scv=true&config={url}&url="
     print(url)
-    print(url_sc)
+    print(url_dler)
+    print(url_scs)
