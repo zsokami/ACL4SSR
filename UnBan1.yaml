@@ -3,6 +3,3 @@ payload:
 - DOMAIN,api.dler.io
 - DOMAIN,api.subcsub.com
 - DOMAIN,ghproxy.com
-- DOMAIN-SUFFIX,jsdelivr.net
-- DOMAIN-SUFFIX,staticaly.com
-- DOMAIN-SUFFIX,statically.io
