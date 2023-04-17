@@ -1,11 +1,16 @@
-from concurrent.futures import ThreadPoolExecutor
 import os
 import re
+from concurrent.futures import ThreadPoolExecutor
 from threading import RLock
 from urllib.parse import urlsplit
 
 import requests
 from bs4 import BeautifulSoup
+
+SC_ALIASES_HOSTS = [
+    ('dler', 'api.dler.io'),
+    ('scs', 'api.subcsub.com'),
+]
 
 GITHUB_REPOSITORY = os.getenv('GITHUB_REPOSITORY')
 GITHUB_REF_NAME = os.getenv('GITHUB_REF_NAME')
@@ -13,7 +18,8 @@ GITHUB_SHA = os.getenv('GITHUB_SHA')
 DDAL_EMAIL = os.getenv('DDAL_EMAIL')
 DDAL_PASSWORD = os.getenv('DDAL_PASSWORD')
 
-ini_file_name = next(f for f in os.listdir() if f.endswith('.ini'))
+ini_file_name = next((f for f in os.listdir() if f.endswith('.ini') and 'Full' in f), None)
+ini_file_name_nocountry = next((f for f in os.listdir() if f.endswith('.ini') and 'Full' not in f), None)
 
 if DDAL_EMAIL and DDAL_PASSWORD:
     re_ddal_alias = re.compile(r'[\da-z]+(?:-[\da-z]+)*', re.I)
@@ -97,40 +103,35 @@ if DDAL_EMAIL and DDAL_PASSWORD:
             else:
                 return self.insert(alias, url)
 
-    if GITHUB_REPOSITORY == 'zsokami/ACL4SSR':
-        alias = 'config'
-        alias_dler = 'dler'
-        alias_scs = 'scs'
-    else:
-        repo = '-'.join(re_ddal_alias.findall(GITHUB_REPOSITORY))
-        alias = f"gh-{repo}"
-        alias_dler = f"gh-{repo}-dler"
-        alias_scs = f"gh-{repo}-scs"
-
-    url = f"https://raw.kgithub.com/{GITHUB_REPOSITORY}/{GITHUB_SHA}/{ini_file_name}"
-    _url = f"https://raw.githubusercontent.com/{GITHUB_REPOSITORY}/{GITHUB_SHA}/{ini_file_name}"
-    url_dler = f"https://api.dler.io/sub?target=clash&udp=true&scv=true&config={_url}"
-    url_scs = f"https://api.subcsub.com/sub?target=clash&udp=true&scv=true&config={_url}"
-
     ddal = DDAL()
     ddal.login(DDAL_EMAIL, DDAL_PASSWORD)
 
+    if GITHUB_REPOSITORY == 'zsokami/ACL4SSR':
+        alias, prefix = 'config', ''
+    else:
+        repo = '-'.join(re_ddal_alias.findall(GITHUB_REPOSITORY))
+        alias, prefix = f"gh-{repo}", f"gh-{repo}-"
+
+    def aliases_urls(name, suffix=''):
+        if name:
+            yield alias + suffix, f"https://raw.kgithub.com/{GITHUB_REPOSITORY}/{GITHUB_SHA}/{name}"
+            _url = f"/sub?target=clash&udp=true&scv=true&config=https://raw.githubusercontent.com/{GITHUB_REPOSITORY}/{GITHUB_SHA}/{name}"
+            yield from ((prefix + a + suffix, f"https://{h}{_url}") for a, h in SC_ALIASES_HOSTS)
+
     upsert_args = [
-        (alias, url),
-        (alias_dler, url_dler),
-        (alias_scs, url_scs)
+        *aliases_urls(ini_file_name),
+        *aliases_urls(ini_file_name_nocountry, '-nc')
     ]
 
     with ThreadPoolExecutor(len(upsert_args)) as executor:
-        url, url_dler, url_scs = executor.map(ddal.upsert, *zip(*upsert_args))
-    print(url)
-    print(f'{url_dler}?url=')
-    print(f'{url_scs}?url=')
+        for url, *sc_urls in zip(*[executor.map(ddal.upsert, *zip(*upsert_args))]*(1+len(SC_ALIASES_HOSTS))):
+            print(url)
+            for url in sc_urls:
+                print(f"{url}?url=")
 else:
-    url = f"https://raw.kgithub.com/{GITHUB_REPOSITORY}/{GITHUB_REF_NAME}/{ini_file_name}"
-    _url = f"https://raw.githubusercontent.com/{GITHUB_REPOSITORY}/{GITHUB_REF_NAME}/{ini_file_name}"
-    url_dler = f"https://api.dler.io/sub?target=clash&udp=true&scv=true&config={_url}&url="
-    url_scs = f"https://api.subcsub.com/sub?target=clash&udp=true&scv=true&config={_url}&url="
-    print(url)
-    print(url_dler)
-    print(url_scs)
+    for name in [ini_file_name, ini_file_name_nocountry]:
+        if name:
+            print(f"https://raw.kgithub.com/{GITHUB_REPOSITORY}/{GITHUB_REF_NAME}/{name}")
+            _url = f"/sub?target=clash&udp=true&scv=true&config=https://raw.githubusercontent.com/{GITHUB_REPOSITORY}/{GITHUB_REF_NAME}/{name}?url="
+            for _, h in SC_ALIASES_HOSTS:
+                print(f"https://{h}{_url}")
