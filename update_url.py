@@ -114,7 +114,7 @@ if DDAL_EMAIL and DDAL_PASSWORD:
 
     def aliases_urls(name, suffix=''):
         if name:
-            yield alias + suffix, f"https://raw.kgithub.com/{GITHUB_REPOSITORY}/{GITHUB_SHA}/{name}"
+            yield alias + suffix, f"https://ghproxy.com/https://raw.githubusercontent.com/{GITHUB_REPOSITORY}/{GITHUB_SHA}/{name}"
             _url = f"/sub?target=clash&udp=true&scv=true&config=https://raw.githubusercontent.com/{GITHUB_REPOSITORY}/{GITHUB_SHA}/{name}"
             yield from ((prefix + a + suffix, f"https://{h}{_url}") for a, h in SC_ALIASES_HOSTS)
 
@@ -131,7 +131,7 @@ if DDAL_EMAIL and DDAL_PASSWORD:
 else:
     for name in [ini_file_name, ini_file_name_nocountry]:
         if name:
-            print(f"https://raw.kgithub.com/{GITHUB_REPOSITORY}/{GITHUB_REF_NAME}/{name}")
+            print(f"https://ghproxy.com/https://raw.githubusercontent.com/{GITHUB_REPOSITORY}/{GITHUB_REF_NAME}/{name}")
             _url = f"/sub?target=clash&udp=true&scv=true&config=https://raw.githubusercontent.com/{GITHUB_REPOSITORY}/{GITHUB_REF_NAME}/{name}?url="
             for _, h in SC_ALIASES_HOSTS:
                 print(f"https://{h}{_url}")
