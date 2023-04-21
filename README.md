@@ -6,6 +6,8 @@
 
 修改自 https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full.ini
 
+---
+
 使用 mannix 的订阅转换反代（自动去除无节点的分组，项目地址：<https://github.com/zsokami/subcvt-mannix>）：
 
 `https://sc-mannix.netlify.app?url={原订阅链接}`
