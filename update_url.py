@@ -8,6 +8,7 @@ import requests
 from bs4 import BeautifulSoup
 
 SC_ALIASES_HOSTS = [
+    ('scm', 'sc-mannix.netlify.app'),
     ('dler', 'api.dler.io'),
     ('scs', 'api.subcsub.com'),
 ]
