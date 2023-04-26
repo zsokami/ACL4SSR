@@ -68,7 +68,7 @@ dler 订阅转换短链：`https://dd.al/dler-nc?url={原订阅链接}`
 新增
 - 🇨🇳 中国 (含 🇭🇰 香港 🇹🇼 台湾)
 - 🎏 其他
-- 🤖 ‍OpenAI
+- 🤖 ‍OpenAI+Bing
 
 url-test
 - 延迟测试链接 http://www.gstatic.com/generate_204 -> https://i.ytimg.com/generate_204
