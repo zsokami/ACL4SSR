@@ -1,7 +1,7 @@
 payload:
 - DOMAIN,dd.al
+- DOMAIN,u.fail
 - DOMAIN,api.dler.io
 - DOMAIN,api.subcsub.com
 - DOMAIN,ghproxy.com
-- DOMAIN,ghraw.netlify.app
-- DOMAIN,sc-mannix.netlify.app
+- DOMAIN-SUFFIX,onrender.com
