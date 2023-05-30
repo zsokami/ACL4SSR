@@ -141,7 +141,7 @@ if API_KEY:
                 'custom': alias
             }).json()
             if r['error']:
-                raise Exception(f"{r['msg']} (alias = {alias!r}, url = {url!r}, r = {r})")
+                raise Exception(f"{r['msg']} (alias = {alias!r}, url = {url!r})")
             return r['short']
 
         def update(self, id, alias, url) -> str:
@@ -214,7 +214,7 @@ if API_KEY:
                 'custom': alias
             }).json()
             if r['error']:
-                raise Exception(f"{r['msg']} (alias = {alias!r}, url = {url!r}, r = {r})")
+                raise Exception(f"{r['message']} (alias = {alias!r}, url = {url!r})")
             return r['data']['shorturl']
 
         def update(self, id, alias, url) -> str:
