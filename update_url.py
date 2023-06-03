@@ -11,7 +11,7 @@ from requests.adapters import HTTPAdapter
 from urllib3 import Retry
 
 SC_ALIASES_HOSTS = [
-    ('scm', 'scm.onrender.com'),
+    ('scm', 'sc.me.cd'),
     ('dler', 'api.dler.io'),
     ('scs', 'api.subcsub.com'),
 ]
@@ -21,7 +21,7 @@ GITHUB_REF_NAME = os.getenv('GITHUB_REF_NAME')
 GITHUB_SHA = os.getenv('GITHUB_SHA')
 API_KEY = os.getenv('URL_SHORTENER_API_KEY')
 
-GITHUB_REPOSITORY_RAW_URL_PREFIX = f'https://ghraw.onrender.com/{GITHUB_REPOSITORY}/'
+GITHUB_REPOSITORY_RAW_URL_PREFIX = f'https://raw.gg.td/{GITHUB_REPOSITORY}/'
 
 ini_file_name = next((f for f in os.listdir() if f.endswith('.ini') and 'Full' in f), None)
 ini_file_name_nocountry = next((f for f in os.listdir() if f.endswith('.ini') and 'Full' not in f), None)

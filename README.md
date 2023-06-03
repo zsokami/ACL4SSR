@@ -8,7 +8,7 @@
 
 使用 mannix 的订阅转换反代（自动去除无节点的分组，项目地址：<https://github.com/zsokami/subcvt-mannix>）：
 
-`https://scm.onrender.com?url={原订阅链接}`
+`https://sc.me.cd?url={原订阅链接}`
 
 短链：`https://u.fail/scm?url={原订阅链接}`
 
