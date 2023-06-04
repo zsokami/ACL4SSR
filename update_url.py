@@ -1,6 +1,7 @@
 import os
 import re
 from concurrent.futures import ThreadPoolExecutor
+from functools import partial
 from threading import RLock
 from time import sleep
 from urllib.parse import urljoin, urlsplit
@@ -30,6 +31,15 @@ ini_file_name_nocountry = next((f for f in os.listdir() if f.endswith('.ini') an
 if API_KEY:
     re_scheme = re.compile(r'^(?:(https?):)?[\\/]*', re.I)
 
+    def bs(text):
+        return BeautifulSoup(text, 'html.parser')
+
+    def to_base(part):
+        return re_scheme.sub(lambda m: f"{m[1] or 'https'}://", part.split('#', 1)[0]) if part else ''
+
+    def to_https(url):
+        return re_scheme.sub('https://', url)
+
     class URLShortener:
         def __init__(self, base=None):
             self.__session = requests.Session()
@@ -44,10 +54,7 @@ if API_KEY:
             return self.__session
 
         def set_base(self, base):
-            if base:
-                self.__base = re_scheme.sub(lambda m: f"{m[1] or 'https'}://", base.split('#', 1)[0])
-            else:
-                self.__base = ''
+            self.__base = to_base(base)
 
         @property
         def base(self):
@@ -62,24 +69,50 @@ if API_KEY:
         def put(self, url='', *args, timeout=10, **kwargs):
             return self.__session.put(urljoin(self.base, url), *args, timeout=timeout, **kwargs)
 
-        def submit(self, page_url='', form_id=None, form_action=None, headers=None, **kwargs):
+        def patch(self, url='', *args, timeout=10, **kwargs):
+            return self.__session.patch(urljoin(self.base, url), *args, timeout=timeout, **kwargs)
+
+        def submit(
+            self,
+            page_url_or_bs: str | BeautifulSoup = '',
+            form_id=None,
+            form_name=None,
+            form_action=None,
+            headers=None,
+            post_url=None,
+            **kwargs
+        ):
             with self._token_lock:
-                r = self.get(page_url)
-                if not r.ok:
-                    return None
-                doc = BeautifulSoup(r.text, 'html.parser')
+                if isinstance(page_url_or_bs, str):
+                    r = self.get(page_url_or_bs)
+                    if not r.ok:
+                        return None
+                    doc = bs(r.text)
+                else:
+                    doc = page_url_or_bs
                 form = doc.find(
                     'form',
-                    **({} if form_id is None else {'id': form_id}),
-                    **({} if form_action is None else {'action': form_action}),
+                    attrs={k: v for k, v in [
+                        ('id', form_id),
+                        ('name', form_name),
+                        ('action', form_action),
+                    ] if v is not None}
                 )
+                if not form:
+                    return None
                 data = {}
                 for tag in form.find_all(attrs={'name': True}):
-                    if tag['name'] not in data or tag.has_attr('checked'):
-                        selected = tag.find(selected=True)
-                        data[tag['name']] = selected['value'] if selected else tag.get('value', '')
+                    if tag['name'] and (tag['name'] not in data or tag.has_attr('checked')):
+                        if tag.get('type') == 'checkbox':
+                            if tag.has_attr('checked'):
+                                data[tag['name']] = tag.get('value', 'on')
+                        elif tag.name == 'select':
+                            if selected := tag.find('option', selected=True) or tag.find('option'):
+                                data[tag['name']] = selected.get('value', selected.text)
+                        else:
+                            data[tag['name']] = tag.get('value', '')
                 data.update(kwargs)
-                return self.post(form['action'], headers=headers, data=data, allow_redirects=False)
+                return self.post(post_url or form['action'], headers=headers, data=data, allow_redirects=False)
 
         def upsert(self, alias, url) -> str: ...
 
@@ -87,13 +120,15 @@ if API_KEY:
         re_alias = re.compile(r'^[\da-z]+(?:-[\da-z]+)*$', re.I)
         re_item_tag_id = re.compile(r'^link-(\d+)$')
 
-        def __init__(self, host, email, password=None):
+        def __init__(self, host, email=None, password=None, domain=None):
             super().__init__(host)
-            self.login(email, password or email)
+            if email:
+                self.login(email, password or email)
+            self.domain = to_base(domain)
 
         @staticmethod
         def bs(text):
-            doc = BeautifulSoup(text, 'html.parser')
+            doc = bs(text)
             if alert := doc.find(class_='alert'):
                 raise Exception(alert.text)
             return doc
@@ -138,11 +173,12 @@ if API_KEY:
             self.raise_for_alias(alias)
             r = self.post('shorten', data={
                 'url': url,
-                'custom': alias
+                'custom': alias,
+                **({'domain': self.domain} if self.domain else {})
             }).json()
             if r['error']:
                 raise Exception(f"{r['msg']} (alias = {alias!r}, url = {url!r})")
-            return r['short']
+            return to_https(r['short'])
 
         def update(self, id, alias, url) -> str:
             self.raise_for_alias(alias)
@@ -155,7 +191,8 @@ if API_KEY:
                     token = token['value']
                     r = self.post(f'user/edit/{id}', data={
                         'url': url,
-                        'token': token
+                        'token': token,
+                        **({'domain': self.domain} if self.domain else {})
                     }, allow_redirects=False)
                 loc = r.headers.get('Location')
                 if not (loc and urlsplit(loc).path != '/user'):
@@ -165,7 +202,7 @@ if API_KEY:
                     break
             else:
                 raise Exception(f'尝试 10 次更新 url 均失败 (id = {id!r}, url = {url!r})')
-            return item['short']
+            return to_https(item['short'])
 
         def upsert(self, alias, url) -> str:
             self.raise_for_alias(alias)
@@ -176,6 +213,11 @@ if API_KEY:
                 return self.insert(alias, url)
 
     class URLShortenerA2(URLShortenerA):
+        def __init__(self, host, email=None, password=None, domain=None, api_key=None):
+            super().__init__(host, email, password, domain)
+            if api_key:
+                self.session.headers['Authorization'] = f'Bearer {api_key}'
+
         def login(self, email, password):
             loc = None
             for i in range(20):
@@ -211,11 +253,12 @@ if API_KEY:
             self.raise_for_alias(alias)
             r = self.post('shorten', data={
                 'url': url,
-                'custom': alias
+                'custom': alias,
+                **({'domain': self.domain} if self.domain else {})
             }).json()
             if r['error']:
                 raise Exception(f"{r['message']} (alias = {alias!r}, url = {url!r})")
-            return r['data']['shorturl']
+            return to_https(r['data']['shorturl'])
 
         def update(self, id, alias, url) -> str:
             self.raise_for_alias(alias)
@@ -228,7 +271,8 @@ if API_KEY:
                     token = token['value']
                     r = self.post(f'user/links/{id}/update', data={
                         'url': url,
-                        '_token': token
+                        '_token': token,
+                        **({'domain': self.domain} if self.domain else {})
                     }, allow_redirects=False)
                 loc = r.headers.get('Location')
                 if not (loc and urlsplit(loc).path != '/user'):
@@ -238,7 +282,29 @@ if API_KEY:
                     break
             else:
                 raise Exception(f'尝试 10 次更新 url 均失败 (id = {id!r}, url = {url!r})')
-            return item['short']
+            return to_https(item['short'])
+
+        def upsert(self, alias, url) -> str:
+            if 'Authorization' not in self.session.headers:
+                return super().upsert(alias, url)
+            r = self.get('api/urls?limit=500')
+            if not r.ok or r.json()['error']:
+                raise Exception(r.status_code, r.text)
+            if item := next((item for item in r.json()['data']['urls'] if item['alias'] == alias), None):
+                r = self.put(f"api/url/{item['id']}/update", json={
+                    'url': url,
+                    **({'domain': self.domain} if self.domain else {})
+                })
+            else:
+                r = self.post('api/url/add', json={
+                    'url': url,
+                    'custom': alias,
+                    'type': 'direct',
+                    **({'domain': self.domain} if self.domain else {})
+                })
+            if not r.ok or r.json()['error']:
+                raise Exception(r.status_code, r.text)
+            return to_https(r.json()['shorturl'])
 
     class URLShortenerB(URLShortener):
         def __init__(self, host, api_key, domain_id=None):
@@ -262,8 +328,10 @@ if API_KEY:
             self.domain_id = domain_id
 
         def upsert(self, alias, url) -> str:
-            resp = self.get(params={'search': alias, self.param_name_search_by: 'alias'})
-            items = resp.json()['data']
+            r = self.get(params={'search': alias, self.param_name_search_by: 'alias'})
+            if not r.ok:
+                raise Exception(r.status_code, r.text)
+            items = r.json()['data']
             item = next((item for item in items if item['alias'] == alias), None)
             if item:
                 r = self.put(str(item['id']), data={'url': url})
@@ -279,25 +347,77 @@ if API_KEY:
                         break
                     endpoint = r.headers['Location']
             if 200 <= r.status_code < 300:
-                return r.json()['data']['short_url']
+                return to_https(r.json()['data']['short_url'])
             raise Exception(r.status_code, r.text)
 
     class URLShortener5XTO(URLShortener):
-        def __init__(self, host, api_key):
-            super().__init__(f'{host}/api/links/')
-            self.session.headers['Authorization'] = f'Bearer {api_key}'
+        def __init__(self, host, email=None, password=None, api_key=None, domain_id=None, domain=None):
+            if api_key:
+                super().__init__(f'{host}/api/links/')
+                self.session.headers['Authorization'] = f'Bearer {api_key}'
+            else:
+                super().__init__(host)
+                self.login(email, password or email)
+            self.domain_id = domain_id
+            self.domain = to_base(domain)
+
+        def login(self, email, password):
+            r = self.post('login', data={'email': email, 'password': password}, allow_redirects=False)
+            if not ((loc := r.headers.get('Location')) and urlsplit(loc).path == '/dashboard'):
+                raise Exception(r.status_code, r.text)
+
+            with self._token_lock:
+                doc = bs(self.get(loc).text)
+                if tag := doc.find('div', attrs={'data-project-id': True}):
+                    self.project_url = tag.find('a')['href']
+                else:
+                    if (r := self.submit(doc, form_name='create_project', post_url='project-ajax', name=email)) is None:
+                        self.project_url = 'links?type=link'
+                    elif r.status_code == 200 and r.json().get('status') == 'success':
+                        self.project_url = r.json()['details']['url']
+                    else:
+                        raise Exception(r.status_code, r.text)
+
+        def upsert_api(self, alias, url) -> str:
+            r = self.get(params={
+                'results_per_page': 500
+            })
+            if not r.ok:
+                raise Exception(r.status_code, r.text)
+            item = next((item for item in r.json()['data'] if item['url'] == alias), None)
+            if item:
+                r = self.post(str(item['id']), data={'location_url': url, 'url': alias})
+            else:
+                r = self.post(data={
+                    'location_url': url,
+                    'url': alias,
+                    **({} if self.domain_id is None else {'domain_id': self.domain_id})
+                })
+            if 200 <= r.status_code < 300:
+                return to_https(urljoin(self.domain or self.base, f'/{alias}'))
+            raise Exception(r.status_code, r.text)
 
         def upsert(self, alias, url) -> str:
-            item = next((item for item in self.get(params={
-                'results_per_page': 500
-            }).json()['data'] if item['url'] == alias), None)
-            if item:
-                r = self.post(str(item['id']), data={'location_url': url})
-            else:
-                r = self.post(data={'location_url': url, 'url': alias})
-            if 200 <= r.status_code < 300:
-                return urljoin(self.base, f'/{alias}')
-            raise Exception(r.status_code, r.text)
+            if 'Authorization' in self.session.headers:
+                return self.upsert_api(alias, url)
+            with self._token_lock:
+                doc = bs(self.get(self.project_url).text)
+                if tag := next((tag for tag in [tag.find('a') for tag in doc.find_all('div', class_='custom-row')] if tag.text == alias), None):
+                    r = self.submit(tag['href'], form_name='update_link', post_url='link-ajax', location_url=url)
+                else:
+                    r = self.submit(
+                        doc,
+                        form_name='create_link',
+                        post_url='link-ajax',
+                        url=alias,
+                        location_url=url,
+                        **({} if self.domain_id is None else {'domain_id': self.domain_id})
+                    )
+            if r is None:
+                raise Exception()
+            if r.status_code != 200 or r.json().get('status') != 'success':
+                raise Exception(r.status_code, r.text)
+            return to_https(urljoin(self.domain or self.base, alias))
 
     class URLShortenerGGGG(URLShortener):
         def __init__(self, host, email, password=None):
@@ -314,33 +434,35 @@ if API_KEY:
             if item:
                 r = self.post('update', data={'custom_path': alias, 'long_url': url, 'link_id': item['id']})
                 if r.status_code == 200 and r.text != 'Error!':
-                    return urljoin(self.base, f'/{r.text}')
+                    return to_https(urljoin(self.base, f'/{r.text}'))
             else:
                 r = self.post('create', data={'custom_path': alias, 'long_url': url})
                 u = urlsplit(r.text)
                 if r.status_code == 200 and u.hostname == urlsplit(self.base).hostname and u.path != '/':
-                    return urljoin(self.base, u.path)
+                    return to_https(urljoin(self.base, u.path))
             raise Exception(r.status_code, r.text)
 
     class URLShortenerAdLinkFly(URLShortener):
-        def __init__(self, host, username, password=None):
+        def __init__(self, host, username, password=None, **kwargs):
             super().__init__(host)
             self.login(username, password or username.split('@')[0])
+            self.kwargs = kwargs or {'ad_type': 0}
+            self.domain = to_base(kwargs.get('domain'))
 
         def login(self, username, password):
-            if not (r := self.submit('auth/signin', 'signin-form', username=username, password=password)):
+            if (r := self.submit('auth/signin', 'signin-form', username=username, password=password)) is None:
                 raise Exception()
             if not ((loc := r.headers.get('Location')) and urlsplit(loc).path == '/member/dashboard'):
                 raise Exception(r.status_code, r.text)
 
         def upsert(self, alias, url) -> str:
-            if r := self.submit(f'member/links/edit/{alias}', False, url=url):
+            if (r := self.submit(f'member/links/edit/{alias}', False, url=url)) is not None:
                 if (loc := r.headers.get('Location')) and urlsplit(loc).path == urlsplit(r.url).path:
-                    return urljoin(self.base, alias)
+                    return to_https(urljoin(self.domain or self.base, alias))
                 raise Exception(r.status_code, r.text)
-            if r := self.submit(f'member/links?alias={alias}', 'shorten', headers={'X-Requested-With': 'XMLHttpRequest'}, url=url, alias=alias, ad_type=0):
+            if (r := self.submit(f'member/links?alias={alias}', 'shorten', headers={'X-Requested-With': 'XMLHttpRequest'}, url=url, alias=alias, **self.kwargs)) is not None:
                 if r.json().get('url'):
-                    return urljoin(self.base, alias)
+                    return to_https(urljoin(self.domain or self.base, alias))
                 raise Exception(r.status_code, r.text)
             raise Exception()
 
@@ -350,14 +472,14 @@ if API_KEY:
             self.login(username, password or username)
 
         def login(self, username, password):
-            if not (r := self.submit(form_action='login', username=username, password=password)):
+            if (r := self.submit(form_action='login', username=username, password=password)) is None:
                 raise Exception()
             if not ((loc := r.headers.get('Location')) and urlsplit(loc).path == ''):
                 raise Exception(r.status_code, r.text)
 
         def upsert(self, alias, url) -> str:
             with self._token_lock:
-                doc = BeautifulSoup(self.get('admin').text, 'html.parser')
+                doc = bs(self.get('admin').text)
                 if not (tag := doc.find('meta', attrs={'name': 'csrf-token'})):
                     raise Exception('未找到 csrf-token')
                 r = self.post(
@@ -366,7 +488,7 @@ if API_KEY:
                     data={'link_ending': alias, 'new_long_url': url}
                 )
             if r.status_code == 200:
-                return urljoin(self.base, alias)
+                return to_https(urljoin(self.base, alias))
             if tag_api_key := doc.select_one('#developer input'):
                 r = self.get('api/v2/action/shorten', params={
                     'key': tag_api_key['value'],
@@ -374,37 +496,60 @@ if API_KEY:
                     'custom_ending': alias,
                 })
                 if r.status_code == 200:
-                    return urljoin(self.base, alias)
+                    return to_https(urljoin(self.base, alias))
             else:
-                if not (r := self.submit(form_action='/shorten', **{'link-url': url, 'custom-ending': alias})):
+                if (r := self.submit(form_action='/shorten', **{'link-url': url, 'custom-ending': alias})) is None:
                     raise Exception()
                 if r.status_code == 200:
-                    return urljoin(self.base, alias)
+                    return to_https(urljoin(self.base, alias))
+            raise Exception(r.status_code, r.text)
+
+    class URLShortenerKutt(URLShortener):
+        def __init__(self, host, api_key, domain=None):
+            super().__init__(f'{host}/api/v2/links/')
+            self.session.headers['X-API-KEY'] = api_key
+            self.domain = to_base(domain)
+
+        def upsert(self, alias, url) -> str:
+            r = self.get(params={
+                'limit': 500,
+                'search': alias,
+            })
+            if not r.ok:
+                raise Exception(r.status_code, r.text)
+            item = next((item for item in r.json()['data'] if item['address'] == alias), None)
+            if item:
+                r = self.patch(str(item['id']), data={'target': url, 'address': alias})
+            else:
+                r = self.post(data={'target': url, 'customurl': alias})
+            if 200 <= r.status_code < 300:
+                return to_https(urljoin(self.domain, alias) if self.domain else r.json()['link'])
             raise Exception(r.status_code, r.text)
 
     def guess_url_shortener(host):
-        session = requests.Session()
-        base = f'https://{host}/'
-        doc = session.get(base).text
+        get = partial(URLShortener(host).get, allow_redirects=False)
+        doc = get().text
         if 'ng-app="polr"' in doc:
             return URLShortenerPolr
-        doc = BeautifulSoup(session.get(f'{base}user/login').text, 'html.parser')
+        doc = bs(get('user/login').text)
         if doc.find('input', {'name': 'token'}):
             return URLShortenerA
         if doc.find('input', {'name': '_token'}):
             return URLShortenerA2
-        doc = BeautifulSoup(session.get(f'{base}login').text, 'html.parser')
+        doc = bs(get('login').text)
         if doc.find('input', {'name': '_token'}):
             return URLShortenerB
-        r = session.get(f'{base}api/links')
-        if r.status_code == 401 and 'json' in r.headers.get('Content-Type', ''):
+        if doc.find('input', {'name': 'email', 'class': 'form-control'}):
             return URLShortener5XTO
-        r = session.get(f'{base}js/logic.js')
+        r = get('js/logic.js')
         if r.status_code == 200 and "'/create'" in r.text:
             return URLShortenerGGGG
-        r = session.get(f'{base}auth/signin')
+        r = get('auth/signin')
         if r.status_code == 200 and '"/auth/signin"' in r.text:
             return URLShortenerAdLinkFly
+        r = get('api/v2/health')
+        if r.text == 'OK':
+            return URLShortenerKutt
         return None
 
     url_shortener = URLShortenerB('u.fail', API_KEY, 1)
