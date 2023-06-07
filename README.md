@@ -1,6 +1,6 @@
 ## ACL4SSR_Online_Full_Mannix.ini
 
-自定义 订阅转换 配置转换 规则转换 的远程配置 https://u.fail/config
+自定义 订阅转换 配置转换 规则转换 的远程配置 https://all.bz/config
 
 修改自 https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full.ini
 
@@ -10,15 +10,15 @@
 
 `https://sc.me.cd?url={原订阅链接}`
 
-短链：`https://u.fail/scm?url={原订阅链接}`
+短链：`https://all.bz/scm?url={原订阅链接}`
 
 ---
 
 ## ACL4SSR_Online_Mannix.ini
 
-去除国家/地区 https://u.fail/config-nc
+去除国家/地区 https://all.bz/config-nc
 
-dler 订阅转换短链：`https://u.fail/dler-nc?url={原订阅链接}`
+dler 订阅转换短链：`https://all.bz/dler-nc?url={原订阅链接}`
 
 ---
 
@@ -28,9 +28,9 @@ dler 订阅转换短链：`https://u.fail/dler-nc?url={原订阅链接}`
 
 **需去除订阅转换链接中的参数 `emoji=true/false` 才能生效**，参考例子：
 
-`https://api.dler.io/sub?target=clash&udp=true&scv=true&config=https://u.fail/config&url={原订阅链接}`
+`https://api.dler.io/sub?target=clash&udp=true&scv=true&config=https://all.bz/config&url={原订阅链接}`
 
-短链：`https://u.fail/dler?url={原订阅链接}`
+短链：`https://all.bz/dler?url={原订阅链接}`
 
 ---
 

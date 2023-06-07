@@ -20,7 +20,9 @@ SC_ALIASES_HOSTS = [
 GITHUB_REPOSITORY = os.getenv('GITHUB_REPOSITORY')
 GITHUB_REF_NAME = os.getenv('GITHUB_REF_NAME')
 GITHUB_SHA = os.getenv('GITHUB_SHA')
-API_KEY = os.getenv('URL_SHORTENER_API_KEY')
+URL_SHORTENER_API_KEY = os.getenv('URL_SHORTENER_API_KEY')
+URL_SHORTENER_TYPE, URL_SHORTENER_HOST = 'B', 'all.bz'
+URL_SHORTENER_OPTIONS = {'host': URL_SHORTENER_HOST, 'api_key': URL_SHORTENER_API_KEY, 'domain_id': 1}
 
 GITHUB_REPOSITORY_RAW_URL_PREFIX = f'https://raw.gg.td/{GITHUB_REPOSITORY}/'
 
@@ -28,7 +30,7 @@ ini_file_name = next((f for f in os.listdir() if f.endswith('.ini') and 'Full' i
 ini_file_name_nocountry = next((f for f in os.listdir() if f.endswith('.ini') and 'Full' not in f), None)
 
 
-if API_KEY:
+if URL_SHORTENER_API_KEY:
     re_scheme = re.compile(r'^(?:(https?):)?[\\/]*', re.I)
 
     def bs(text):
@@ -129,7 +131,7 @@ if API_KEY:
         @staticmethod
         def bs(text):
             doc = bs(text)
-            if alert := doc.find(class_='alert'):
+            if (alert := doc.find(class_='alert')) and '已成功' not in alert.text:
                 raise Exception(alert.text)
             return doc
 
@@ -162,6 +164,7 @@ if API_KEY:
         def search(self, q) -> list[dict]:
             doc = self.bs(self.post('user/search', data={
                 'q': q,
+                'token': '19ea4506a3aaee52e4c8b98c3a59a3d2'
             }).text)
             return [{
                 'id': item['data-id'],
@@ -526,11 +529,31 @@ if API_KEY:
                 return to_https(urljoin(self.domain, alias) if self.domain else r.json()['link'])
             raise Exception(r.status_code, r.text)
 
+    class URLShortenerShortio(URLShortener):
+        def __init__(self, host, api_key, domain):
+            super().__init__(f'{host}/links/')
+            self.session.headers['Authorization'] = api_key
+            self.domain = domain
+
+        def upsert(self, alias, url) -> str:
+            r = self.get('expand', params={'domain': self.domain, 'path': alias})
+            if r.status_code == 200:
+                r = self.post(r.json()['idString'], json={'originalURL': url})
+            elif r.status_code == 404:
+                r = self.post(json={'domain': self.domain, 'originalURL': url, 'path': alias})
+            else:
+                raise Exception(r.status_code, r.text)
+            if r:
+                return r.json()['shortURL']
+            raise Exception(r.status_code, r.text)
+
     def guess_url_shortener(host):
         get = partial(URLShortener(host).get, allow_redirects=False)
         doc = get().text
         if 'ng-app="polr"' in doc:
             return URLShortenerPolr
+        if doc == '{"success":true}':
+            return URLShortenerShortio
         doc = bs(get('user/login').text)
         if doc.find('input', {'name': 'token'}):
             return URLShortenerA
@@ -552,7 +575,12 @@ if API_KEY:
             return URLShortenerKutt
         return None
 
-    url_shortener = URLShortenerB('u.fail', API_KEY, 1)
+    url_shortener_class_map = {
+        c.__name__.removeprefix(URLShortener.__name__): c
+        for c in URLShortener.__subclasses__()
+    }
+
+    url_shortener = url_shortener_class_map[URL_SHORTENER_TYPE](**URL_SHORTENER_OPTIONS)
 
     if GITHUB_REPOSITORY == 'zsokami/ACL4SSR':
         alias, prefix = 'config', ''
