@@ -119,7 +119,7 @@ if URL_SHORTENER_API_KEY:
         def upsert(self, alias, url) -> str: ...
 
     class URLShortenerA(URLShortener):
-        re_alias = re.compile(r'^[\da-z]+(?:-[\da-z]+)*$', re.I)
+        re_alias = re.compile(r'[\da-z]+(?:-[\da-z]+)*', re.I)
         re_item_tag_id = re.compile(r'^link-(\d+)$')
 
         def __init__(self, host, email=None, password=None, domain=None):
