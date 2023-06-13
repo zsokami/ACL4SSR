@@ -116,7 +116,17 @@ if URL_SHORTENER_API_KEY:
                 data.update(kwargs)
                 return self.post(post_url or form['action'], headers=headers, data=data, allow_redirects=False)
 
+        @classmethod
+        def check(cls, host):
+            try:
+                return bool(cls._check(partial(URLShortener(host).get, timeout=5, allow_redirects=False)))
+            except Exception:
+                return False
+
         def upsert(self, alias, url) -> str: ...
+
+        @staticmethod
+        def _check(get): ...
 
     class URLShortenerA(URLShortener):
         re_alias = re.compile(r'[\da-z]+(?:-[\da-z]+)*', re.I)
@@ -215,6 +225,10 @@ if URL_SHORTENER_API_KEY:
             else:
                 return self.insert(alias, url)
 
+        @staticmethod
+        def _check(get):
+            return bs(get('user/login').text).find('input', {'name': 'token'})
+
     class URLShortenerA2(URLShortenerA):
         def __init__(self, host, email=None, password=None, domain=None, api_key=None):
             super().__init__(host, email, password, domain)
@@ -309,6 +323,10 @@ if URL_SHORTENER_API_KEY:
                 raise Exception(r.status_code, r.text)
             return to_https(r.json()['shorturl'])
 
+        @staticmethod
+        def _check(get):
+            return (r := get('user/login')) and bs(r.text).find('input', {'name': '_token'})
+
     class URLShortenerB(URLShortener):
         def __init__(self, host, api_key, domain_id=None):
             super().__init__(f'{host}/api/v1/links/')
@@ -352,6 +370,10 @@ if URL_SHORTENER_API_KEY:
             if 200 <= r.status_code < 300:
                 return to_https(r.json()['data']['short_url'])
             raise Exception(r.status_code, r.text)
+
+        @staticmethod
+        def _check(get):
+            return 'https://rsms.me' in (t := get('login').text) and bs(t).find('input', {'name': '_token'})
 
     class URLShortener5XTO(URLShortener):
         def __init__(self, host, email=None, password=None, api_key=None, domain_id=None, domain=None):
@@ -422,6 +444,11 @@ if URL_SHORTENER_API_KEY:
                 raise Exception(r.status_code, r.text)
             return to_https(urljoin(self.domain or self.base, alias))
 
+        @staticmethod
+        def _check(get):
+            doc = bs(get('login').text)
+            return doc.find('input', {'name': 'email', 'class': 'form-control'}) and not doc.find('input', {'name': '_token'})
+
     class URLShortenerGGGG(URLShortener):
         def __init__(self, host, email, password=None):
             super().__init__(host)
@@ -444,6 +471,10 @@ if URL_SHORTENER_API_KEY:
                 if r.status_code == 200 and u.hostname == urlsplit(self.base).hostname and u.path != '/':
                     return to_https(urljoin(self.base, u.path))
             raise Exception(r.status_code, r.text)
+
+        @staticmethod
+        def _check(get):
+            return "'/create'" in get('js/logic.js').text
 
     class URLShortenerAdLinkFly(URLShortener):
         def __init__(self, host, username, password=None, **kwargs):
@@ -468,6 +499,10 @@ if URL_SHORTENER_API_KEY:
                     return to_https(urljoin(self.domain or self.base, alias))
                 raise Exception(r.status_code, r.text)
             raise Exception()
+
+        @staticmethod
+        def _check(get):
+            return '"/auth/signin"' in get('auth/signin').text
 
     class URLShortenerPolr(URLShortener):
         def __init__(self, host, username, password=None):
@@ -507,6 +542,10 @@ if URL_SHORTENER_API_KEY:
                     return to_https(urljoin(self.base, alias))
             raise Exception(r.status_code, r.text)
 
+        @staticmethod
+        def _check(get):
+            return 'ng-app="polr"' in get().text
+
     class URLShortenerKutt(URLShortener):
         def __init__(self, host, api_key, domain=None):
             super().__init__(f'{host}/api/v2/links/')
@@ -529,6 +568,10 @@ if URL_SHORTENER_API_KEY:
                 return to_https(urljoin(self.domain, alias) if self.domain else r.json()['link'])
             raise Exception(r.status_code, r.text)
 
+        @staticmethod
+        def _check(get):
+            return get('api/v2/health').text == 'OK'
+
     class URLShortenerShortio(URLShortener):
         def __init__(self, host, api_key, domain):
             super().__init__(f'{host}/links/')
@@ -547,32 +590,36 @@ if URL_SHORTENER_API_KEY:
                 return r.json()['shortURL']
             raise Exception(r.status_code, r.text)
 
-    def guess_url_shortener(host):
-        get = partial(URLShortener(host).get, allow_redirects=False)
+        @staticmethod
+        def _check(get):
+            return get().text == '{"success":true}'
+
+    def guess_url_shortener_type(host):
+        get = partial(URLShortener(host).get, timeout=5, allow_redirects=False)
         doc = get().text
         if 'ng-app="polr"' in doc:
-            return URLShortenerPolr
+            return 'Polr'
         if doc == '{"success":true}':
-            return URLShortenerShortio
+            return 'Shortio'
         doc = bs(get('user/login').text)
         if doc.find('input', {'name': 'token'}):
-            return URLShortenerA
+            return 'A'
         if doc.find('input', {'name': '_token'}):
-            return URLShortenerA2
+            return 'A2'
         doc = bs(get('login').text)
         if doc.find('input', {'name': '_token'}):
-            return URLShortenerB
+            return 'B'
         if doc.find('input', {'name': 'email', 'class': 'form-control'}):
-            return URLShortener5XTO
+            return '5XTO'
         r = get('js/logic.js')
-        if r.status_code == 200 and "'/create'" in r.text:
-            return URLShortenerGGGG
+        if "'/create'" in r.text:
+            return 'GGGG'
         r = get('auth/signin')
-        if r.status_code == 200 and '"/auth/signin"' in r.text:
-            return URLShortenerAdLinkFly
+        if '"/auth/signin"' in r.text:
+            return 'AdLinkFly'
         r = get('api/v2/health')
         if r.text == 'OK':
-            return URLShortenerKutt
+            return 'Kutt'
         return None
 
     url_shortener_class_map = {
