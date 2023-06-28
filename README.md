@@ -2,7 +2,7 @@
 
 自定义 订阅转换 配置转换 规则转换 的远程配置：
 
-https://raw.gg.td/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Mannix.ini
+https://raw.me.cd/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Mannix.ini
 
 短链：https://all.bz/config
 
@@ -22,7 +22,7 @@ https://raw.gg.td/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Mannix.ini
 
 去除国家/地区：
 
-https://raw.gg.td/zsokami/ACL4SSR/main/ACL4SSR_Online_Mannix.ini
+https://raw.me.cd/zsokami/ACL4SSR/main/ACL4SSR_Online_Mannix.ini
 
 短链：https://all.bz/config-nc
 
