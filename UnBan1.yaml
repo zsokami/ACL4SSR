@@ -1,8 +1,14 @@
 payload:
 - DOMAIN,raw.me.cd
 - DOMAIN,sc.me.cd
+- DOMAIN-SUFFIX,ghraw.eu.org
+- DOMAIN-SUFFIX,scmx.eu.org
+- DOMAIN,3.7.cr
+- DOMAIN,7.7.cr
+- DOMAIN,note.7.cr
 - DOMAIN,dd.al
 - DOMAIN,all.bz
 - DOMAIN,api.dler.io
 - DOMAIN,api.subcsub.com
 - DOMAIN,ghproxy.com
+- DOMAIN-SUFFIX,1976f.com
