@@ -1,6 +1,4 @@
 payload:
-- DOMAIN,raw.me.cd
-- DOMAIN,sc.me.cd
 - DOMAIN-SUFFIX,ghraw.eu.org
 - DOMAIN-SUFFIX,scmx.eu.org
 - DOMAIN,3.7.cr

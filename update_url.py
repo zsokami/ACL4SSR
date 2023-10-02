@@ -12,7 +12,7 @@ from requests.adapters import HTTPAdapter
 from urllib3 import Retry
 
 SC_ALIASES_HOSTS = [
-    ('scm', 'sc.me.cd'),
+    ('scm', 'scmx.eu.org'),
     ('dler', 'api.dler.io'),
     ('scs', 'api.subcsub.com'),
 ]
@@ -24,7 +24,7 @@ URL_SHORTENER_API_KEY = os.getenv('URL_SHORTENER_API_KEY')
 URL_SHORTENER_TYPE, URL_SHORTENER_HOST = 'B', 'all.bz'
 URL_SHORTENER_OPTIONS = {'host': URL_SHORTENER_HOST, 'api_key': URL_SHORTENER_API_KEY, 'domain_id': 1}
 
-GITHUB_REPOSITORY_RAW_URL_PREFIX = f'https://raw.me.cd/{GITHUB_REPOSITORY}/'
+GITHUB_REPOSITORY_RAW_URL_PREFIX = f'https://ghraw.eu.org/{GITHUB_REPOSITORY}/'
 
 ini_file_name = next((f for f in os.listdir() if f.endswith('.ini') and 'Full' in f), None)
 ini_file_name_nocountry = next((f for f in os.listdir() if f.endswith('.ini') and 'Full' not in f), None)
