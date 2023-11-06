@@ -12,7 +12,6 @@ from requests.adapters import HTTPAdapter
 from urllib3 import Retry
 
 SC_ALIASES_HOSTS = [
-    ('scm', 'scmx.eu.org'),
     ('dler', 'api.dler.io'),
     ('scs', 'api.subcsub.com'),
 ]

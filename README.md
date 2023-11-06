@@ -14,8 +14,6 @@ https://ghraw.eu.org/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Mannix.ini
 
 `https://scmx.eu.org?url={原订阅链接}`
 
-短链：`https://all.bz/scm?url={原订阅链接}`
-
 ---
 
 ## ACL4SSR_Online_Mannix.ini
