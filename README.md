@@ -2,7 +2,7 @@
 
 自定义 订阅转换 配置转换 规则转换 的远程配置：
 
-https://ghraw.eu.org/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Mannix.ini
+https://r.7.cr/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Mannix.ini
 
 短链：https://all.bz/config
 
@@ -12,7 +12,7 @@ https://ghraw.eu.org/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Mannix.ini
 
 使用 mannix 的订阅转换反代（自动去除无节点的分组，项目地址：<https://github.com/zsokami/subcvt-mannix>）：
 
-`https://scmx.eu.org?url={原订阅链接}`
+`https://c.7.cr?url={原订阅链接}`
 
 ---
 
@@ -20,7 +20,7 @@ https://ghraw.eu.org/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Mannix.ini
 
 去除国家/地区：
 
-https://ghraw.eu.org/zsokami/ACL4SSR/main/ACL4SSR_Online_Mannix.ini
+https://r.7.cr/zsokami/ACL4SSR/main/ACL4SSR_Online_Mannix.ini
 
 短链：https://all.bz/config-nc
 
