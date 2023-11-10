@@ -34,7 +34,7 @@ dler 订阅转换短链：`https://all.bz/dler-nc?url={原订阅链接}`
 
 **需去除订阅转换链接中的参数 `emoji=true/false` 才能生效**，参考例子：
 
-`https://api.dler.io/sub?target=clash&udp=true&scv=false&config=https://all.bz/config&url={原订阅链接}`
+`https://api.dler.io/sub?target=clash&udp=true&scv=true&config=https://all.bz/config&url={原订阅链接}`
 
 短链：`https://all.bz/dler?url={原订阅链接}`
 

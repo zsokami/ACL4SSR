@@ -637,7 +637,7 @@ if URL_SHORTENER_API_KEY:
     def aliases_urls(name, suffix=''):
         if name:
             yield alias + suffix, f"{GITHUB_REPOSITORY_RAW_URL_PREFIX}{GITHUB_SHA}/{name}"
-            _url = f"/sub?target=clash&udp=true&scv=false&config=https://raw.githubusercontent.com/{GITHUB_REPOSITORY}/{GITHUB_SHA}/{name}"
+            _url = f"/sub?target=clash&udp=true&scv=true&config=https://raw.githubusercontent.com/{GITHUB_REPOSITORY}/{GITHUB_SHA}/{name}"
             yield from ((prefix + a + suffix, f"https://{h}{_url}") for a, h in SC_ALIASES_HOSTS)
 
     upsert_args = [
@@ -654,6 +654,6 @@ else:
     for name in [ini_file_name, ini_file_name_nocountry]:
         if name:
             print(f"{GITHUB_REPOSITORY_RAW_URL_PREFIX}{GITHUB_REF_NAME}/{name}")
-            _url = f"/sub?target=clash&udp=true&scv=false&config=https://raw.githubusercontent.com/{GITHUB_REPOSITORY}/{GITHUB_REF_NAME}/{name}?url="
+            _url = f"/sub?target=clash&udp=true&scv=true&config=https://raw.githubusercontent.com/{GITHUB_REPOSITORY}/{GITHUB_REF_NAME}/{name}?url="
             for _, h in SC_ALIASES_HOSTS:
                 print(f"https://{h}{_url}")
