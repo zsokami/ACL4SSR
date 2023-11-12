@@ -78,8 +78,8 @@ dler 订阅转换短链：`https://all.bz/dler-nc?url={原订阅链接}`
 
 url-test
 - 延迟测试链接 http://www.gstatic.com/generate_204 -> https://i.ytimg.com/generate_204
-- 间隔时间 300秒 -> 30秒
-- 容差 50毫秒
+- 间隔时间 300秒 -> 15/30秒
+- 容差 50/150毫秒 -> 100/300毫秒
 
 📺 ‍B站 默认选择 🇨🇳 ‍中国
 
