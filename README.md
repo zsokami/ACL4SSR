@@ -4,7 +4,7 @@
 
 https://r.7.cr/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Mannix.ini
 
-短链：https://all.bz/config
+短链：https://7.7.cr/config
 
 修改自 https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full.ini
 
@@ -22,9 +22,9 @@ https://r.7.cr/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Mannix.ini
 
 https://r.7.cr/zsokami/ACL4SSR/main/ACL4SSR_Online_Mannix.ini
 
-短链：https://all.bz/config-nc
+短链：https://7.7.cr/config-nc
 
-dler 订阅转换短链：`https://all.bz/dler-nc?url={原订阅链接}`
+dler 订阅转换短链：`https://7.7.cr/dler-nc?url={原订阅链接}`
 
 ---
 
@@ -34,9 +34,9 @@ dler 订阅转换短链：`https://all.bz/dler-nc?url={原订阅链接}`
 
 **需去除订阅转换链接中的参数 `emoji=true/false` 才能生效**，参考例子：
 
-`https://api.dler.io/sub?target=clash&udp=true&scv=true&config=https://all.bz/config&url={原订阅链接}`
+`https://api.dler.io/sub?target=clash&udp=true&scv=true&config=https://7.7.cr/config&url={原订阅链接}`
 
-短链：`https://all.bz/dler?url={原订阅链接}`
+短链：`https://7.7.cr/dler?url={原订阅链接}`
 
 ---
 
