@@ -2,7 +2,7 @@
 
 自定义 订阅转换 配置转换 规则转换 的远程配置：
 
-https://r.7.cr/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Mannix.ini
+https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Mannix.ini
 
 短链：https://7.7.cr/config
 
@@ -20,7 +20,7 @@ https://r.7.cr/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Mannix.ini
 
 去除国家/地区：
 
-https://r.7.cr/zsokami/ACL4SSR/main/ACL4SSR_Online_Mannix.ini
+https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Mannix.ini
 
 短链：https://7.7.cr/config-nc
 
@@ -34,7 +34,7 @@ dler 订阅转换短链：`https://7.7.cr/dler-nc?url={原订阅链接}`
 
 **需去除订阅转换链接中的参数 `emoji=true/false` 才能生效**，参考例子：
 
-`https://api.dler.io/sub?target=clash&udp=true&scv=true&config=https://7.7.cr/config&url={原订阅链接}`
+`https://api.dler.io/sub?target=clash&udp=true&scv=true&config=https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Mannix.ini&url={原订阅链接}`
 
 短链：`https://7.7.cr/dler?url={原订阅链接}`
 
