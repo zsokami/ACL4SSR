@@ -6,6 +6,7 @@ payload:
 - DOMAIN,j.7.cr
 - DOMAIN,n.7.cr
 - DOMAIN,r.7.cr
+- DOMAIN,api.v1.mk
 - DOMAIN,api.dler.io
 - DOMAIN,api.subcsub.com
 - DOMAIN,api.tsutsu.one

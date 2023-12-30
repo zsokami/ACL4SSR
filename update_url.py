@@ -12,6 +12,7 @@ from requests.adapters import HTTPAdapter
 from urllib3 import Retry
 
 SC_ALIASES_HOSTS = [
+    ('v1', 'api.v1.mk'),
     ('dler', 'api.dler.io'),
     ('scs', 'api.subcsub.com'),
     ('tsu', 'api.tsutsu.one'),
