@@ -1,0 +1,8 @@
+# 扩展 APP 广告拦截规则，对某些影视/动漫 APP 有加速奇效
+
+payload:
+- DOMAIN-SUFFIX,sigmob.cn
+- DOMAIN,open.e.kuaishou.com
+- DOMAIN,open.e.kuaishou.cn
+- DOMAIN-SUFFIX,pangolin-sdk-toutiao1.com
+- DOMAIN-SUFFIX,ctobsnssdk.com
