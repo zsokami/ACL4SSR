@@ -4,5 +4,9 @@ payload:
 - DOMAIN-SUFFIX,sigmob.cn
 - DOMAIN,open.e.kuaishou.com
 - DOMAIN,open.e.kuaishou.cn
+- DOMAIN-SUFFIX,adkwai.com
+- DOMAIN-SUFFIX,adukwai.com
 - DOMAIN-SUFFIX,pangolin-sdk-toutiao1.com
 - DOMAIN-SUFFIX,ctobsnssdk.com
+- DOMAIN,api.hzsanjiaomao.com
+- DOMAIN,api.juliangcili.com
