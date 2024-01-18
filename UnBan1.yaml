@@ -11,4 +11,5 @@ payload:
 - DOMAIN,api.subcsub.com
 - DOMAIN,api.tsutsu.one
 - DOMAIN,mirror.ghproxy.com
+- DOMAIN-SUFFIX,fgit.cf
 - DOMAIN-SUFFIX,1976f.com
