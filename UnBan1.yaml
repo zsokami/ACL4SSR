@@ -12,4 +12,5 @@ payload:
 - DOMAIN,api.tsutsu.one
 - DOMAIN,mirror.ghproxy.com
 - DOMAIN-SUFFIX,fgit.cf
+- DOMAIN-SUFFIX,githubfast.com
 - DOMAIN-SUFFIX,1976f.com
