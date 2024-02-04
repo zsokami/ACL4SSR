@@ -25,6 +25,7 @@ re_emoji = r'''
 🇨🇭,CHE?,瑞士|苏黎世,Switzerland|Zurich
 🇮🇪,IE|IRL,爱尔兰|都柏林,Ireland|Dublin
 🇮🇩,IDN?,印尼|印度尼西亚|雅加达,Indonesia|Jakarta
+🇬🇶,GN?Q,赤道几内亚,Equatorial.*Guinea
 🇫🇮,FIN?,芬兰|赫尔辛基,Finland|Helsinki
 🇹🇭,THA?,泰国|曼谷,Thailand|Bangkok
 🇲🇽,ME?X,墨西哥|克雷塔罗,Mexico|Queretaro
@@ -54,12 +55,17 @@ re_emoji = r'''
 🇵🇸,PSE?,巴勒斯坦,Palestine
 🇧🇬,BGR?,保加利亚,Bulgaria
 🇨🇴,COL?,哥伦比亚,Colombia
+🇬🇮,GIB?,直布罗陀,Gibraltar
+🇦🇶,AQ|ATA,南极,Antarctica
+🇲🇪,MN?E,黑山,Montenegro
+🇿🇼,ZWE?,津巴布韦,Zimbabwe
 🇰🇭,KHM?,柬埔寨,Cambodia
 🇱🇹,LTU?,立陶宛,Lietuvos
 🇲🇳,MNG?,蒙古,Mongolia
 🇲🇾,MYS?,马来,Malaysia
 🇵🇰,PA?K,巴基斯坦,Pakistan
 🇵🇹,PR?T,葡萄牙,Portugal
+🇸🇴,SOM?,索马里,Somalia
 🇩🇰,DN?K,丹麦,Denmark
 🇮🇸,ISL?,冰岛,Iceland
 🇦🇱,ALB?,阿尔巴尼亚,Albania
@@ -101,6 +107,10 @@ re_emoji = r'''
 🇮🇷,IRN?,伊朗,Iran
 🇵🇪,PER?,秘鲁,Peru
 🇱🇦,LAO?,老挝|寮国,Lao
+🇹🇱,TLS?,东帝汶,Timor
+🇦🇴,AG?O,安哥拉,Angola
+🇶🇦,QAT?,卡塔尔,Qatar
+🇫🇯,FJI?,斐济,Fiji
 '''.splitlines()
 
 re_emoji = [line.split(',') for line in map(str.strip, re_emoji) if line]
