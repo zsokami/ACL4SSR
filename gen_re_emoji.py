@@ -34,6 +34,7 @@ re_emoji = r'''
 🇸🇦,SAU?,沙特|吉达,Arabia|J[eu]dda
 🇱🇰,LKA?,斯里兰卡,Sri[^a-z]*Lanka
 🇦🇹,AU?T,奥地利|维也纳,Austria|Vienna
+🇴🇲,OMN?,阿曼|马斯喀特,Oman|Muscat
 🇪🇸,ESP?,西班牙|马德里,Spain|Madrid
 🇸🇮,SI|SVN,斯洛文尼亚,Slovenia
 🇳🇱,NLD?,荷兰|阿姆斯特丹,Netherlands
@@ -56,6 +57,7 @@ re_emoji = r'''
 🇧🇬,BGR?,保加利亚,Bulgaria
 🇨🇴,COL?,哥伦比亚,Colombia
 🇬🇮,GIB?,直布罗陀,Gibraltar
+🇬🇹,GTM?,危地马拉,Guatemala
 🇦🇶,AQ|ATA,南极,Antarctica
 🇲🇪,MN?E,黑山,Montenegro
 🇿🇼,ZWE?,津巴布韦,Zimbabwe
@@ -110,6 +112,8 @@ re_emoji = r'''
 🇹🇱,TLS?,东帝汶,Timor
 🇦🇴,AG?O,安哥拉,Angola
 🇶🇦,QAT?,卡塔尔,Qatar
+🇱🇾,LB?Y,利比亚,Libya
+🇧🇭,BHR?,巴林,Bahrain
 🇫🇯,FJI?,斐济,Fiji
 '''.splitlines()
 
