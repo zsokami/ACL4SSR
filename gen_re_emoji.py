@@ -109,6 +109,7 @@ re_emoji = r'''
 🇮🇷,IRN?,伊朗,Iran
 🇵🇪,PER?,秘鲁,Peru
 🇱🇦,LAO?,老挝|寮国,Lao
+🇷🇼,RWA?,卢旺达,Rwanda
 🇹🇱,TLS?,东帝汶,Timor
 🇦🇴,AG?O,安哥拉,Angola
 🇶🇦,QAT?,卡塔尔,Qatar
