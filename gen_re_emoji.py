@@ -4,7 +4,7 @@ from pyperclip import copy
 re_emoji = r'''
 🇺🇸,USA?,美[国國]|华盛顿|波特兰|达拉斯|俄勒冈|凤凰城|菲尼克斯|费利蒙|弗里蒙特|硅谷|旧金山|拉斯维加斯|洛杉|圣何塞|圣荷西|圣塔?克拉拉|西雅图|芝加哥|哥伦布|纽约|阿什本,America|United[^a-z]*States|Washington|Portland|Dallas|Oregon|Phoenix|Fremont|Valley|Francisco|Vegas|Los[^a-z]*Angeles|San[^a-z]*Jose|Santa[^a-z]*Clara|Seattle|Chicago|Columbus|York|Ashburn
 🇭🇰,HKG?|CMI|HGC|HKT|HKBN|WTT|PCCW,香港,Hong
-🇯🇵,JA?P,日本|东京|大阪|名古屋|埼玉,Japan|Tokyo|Osaka|Nagoya|Saitama
+🇯🇵,JPN?,日本|东京|大阪|名古屋|埼玉,Japan|Tokyo|Osaka|Nagoya|Saitama
 🇸🇬,SGP?,新加坡|[狮獅]城,Singapore
 🇹🇼,TWN?|CHT|HiNet,[台臺][湾灣]|新[北竹]|彰化,Taiwan
 🇷🇺,RUS?,俄[国國]|俄[罗羅]斯|莫斯科|圣彼得堡|西伯利亚|伯力|哈巴罗夫斯克,Russia|Moscow|Petersburg|Siberia|Khabarovsk
