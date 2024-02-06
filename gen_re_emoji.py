@@ -125,10 +125,10 @@ for i, (emoji, code, zh, en) in enumerate(re_emoji):
     rest = re_emoji[i + 1:]
     if rest:
         code_rest, zh_rest, en_rest = ('|'.join(rest) for rest in zip(*(x[1:] for x in rest)))
-        zh = rf"({zh})(?!.*({zh_rest})(?!中[轉转])),"
+        zh = rf"({zh})(?!中[轉转])(?!.*({zh_rest})(?!中[轉转])),"
         en = rf"(?i:((?<![\da-z.])({code})(?!\d*[a-z])|{en})(?!.*((?<![\da-z.])({code_rest})(?!\d*[a-z])|{en_rest}))),"
     else:
-        zh = rf"({zh}),"
+        zh = rf"({zh})(?!中[轉转]),"
         en = rf"(?i:((?<![\da-z.])({code})(?!\d*[a-z])|{en})),"
     re_emoji[i] = [prefix + x + emoji for x in (zh, en)]
 
