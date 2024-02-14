@@ -125,6 +125,7 @@ re_emoji = [line.split(',') for line in map(str.strip, re_emoji) if line]
 for i, (emoji, code, zh, en) in enumerate(re_emoji):
     prefix = rf"emoji=^(?!.*{'(?!🇨🇳)' if emoji in ('🇭🇰', '🇹🇼', '🇲🇴') else ''}[🇦-🇿]{{2}}).*"
     rest = re_emoji[i + 1:]
+    zh2 = rf"({zh}),"
     if rest:
         code_rest, zh_rest, en_rest = ('|'.join(rest) for rest in zip(*(x[1:] for x in rest)))
         zh = rf"({zh})(?!中[轉转])(?!.*({zh_rest})(?!中[轉转])),"
@@ -132,7 +133,7 @@ for i, (emoji, code, zh, en) in enumerate(re_emoji):
     else:
         zh = rf"({zh})(?!中[轉转]),"
         en = rf"(?i:((?<![\da-z.])({code})(?!\d*[a-z])|{en})),"
-    re_emoji[i] = [prefix + x + emoji for x in (zh, en)]
+    re_emoji[i] = [prefix + x + emoji for x in (zh, zh2, en)]
 
 copy('\n'.join(line for lines in zip(*re_emoji) for line in lines))
 print('Copied')
