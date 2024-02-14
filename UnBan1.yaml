@@ -10,7 +10,11 @@ payload:
 - DOMAIN,api.dler.io
 - DOMAIN,api.subcsub.com
 - DOMAIN,api.tsutsu.one
+- DOMAIN,gh.api.99988866.xyz
+- DOMAIN,ghproxy.top
+- DOMAIN,ghproxy.net
+- DOMAIN,ghproxy.org
+- DOMAIN,ghproxy.cc
 - DOMAIN,mirror.ghproxy.com
-- DOMAIN-SUFFIX,fgit.cf
 - DOMAIN-SUFFIX,githubfast.com
 - DOMAIN-SUFFIX,1976f.com
