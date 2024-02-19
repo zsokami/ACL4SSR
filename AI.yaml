@@ -3,3 +3,7 @@ payload:
 - DOMAIN-SUFFIX,oaistatic.com
 - DOMAIN-SUFFIX,oaiusercontent.com
 - DOMAIN-SUFFIX,bing.com
+- DOMAIN,copilot.microsoft.com
+- DOMAIN,gemini.google.com
+- DOMAIN-SUFFIX,claude.ai
+- DOMAIN-SUFFIX,anthropic.com

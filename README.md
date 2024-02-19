@@ -88,7 +88,7 @@ https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Mannix.ini
 新增
 - 🇨🇳 中国 (含 🇭🇰 香港 🇹🇼 台湾)
 - 🎏 其他
-- 🤖 ‍OpenAI+Bing
+- 🤖 ‍AI
 
 url-test
 - 延迟测试链接 http://www.gstatic.com/generate_204 -> https://i.ytimg.com/generate_204
