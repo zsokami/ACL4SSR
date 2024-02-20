@@ -16,5 +16,9 @@ payload:
 - DOMAIN,ghproxy.org
 - DOMAIN,ghproxy.cc
 - DOMAIN,mirror.ghproxy.com
+- DOMAIN,github.moeyy.xyz
+- DOMAIN,gh.idayer.com
+- DOMAIN-SUFFIX,gitmirror.com
+- DOMAIN,gh.con.sh
 - DOMAIN-SUFFIX,githubfast.com
 - DOMAIN-SUFFIX,1976f.com
