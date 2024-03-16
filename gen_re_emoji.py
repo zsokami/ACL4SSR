@@ -25,7 +25,7 @@ re_emoji = r'''
 🇨🇭,CHE?,瑞士|苏黎世,Switzerland|Zurich
 🇮🇪,IE|IRL,爱尔兰|都柏林,Ireland|Dublin
 🇮🇩,IDN?,印尼|印度尼西亚|雅加达,Indonesia|Jakarta
-🇬🇶,GN?Q,赤道几内亚,Equatorial.*Guinea
+🇬🇶,GN?Q,赤道几内亚,Equatorial[^a-z]*Guinea
 🇫🇮,FIN?,芬兰|赫尔辛基,Finland|Helsinki
 🇹🇭,THA?,泰国|曼谷,Thailand|Bangkok
 🇲🇽,ME?X,墨西哥|克雷塔罗,Mexico|Queretaro
