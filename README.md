@@ -38,7 +38,13 @@ https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Mannix.ini
 
 ### V3
 
-扩展 APP 广告拦截规则，对某些影视/动漫 APP 有加速奇效
+扩展 APP 广告拦截规则，对某些影视/动漫 APP 有加速奇效：
+
+https://raw.githubusercontent.com/zsokami/ACL4SSR/main/BanProgramAD1.list
+
+附 hosts 文件（自动更新）：
+
+https://raw.githubusercontent.com/zsokami/ACL4SSR/main/hosts
 
 ---
 
