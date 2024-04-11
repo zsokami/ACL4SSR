@@ -1,0 +1,29 @@
+name: update_hosts.py
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 0 23 * * *
+permissions: write-all
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Install dependencies
+        run: pip install requests
+      - name: Run update_hosts.py
+        env:
+          VIRUSTOTAL_API_KEY: ${{ secrets.VIRUSTOTAL_API_KEY }}
+        run: python update_hosts.py
+      - name: Commit & Push
+        run: |
+          git config user.email github-actions@github.com
+          git config user.name github-actions
+          git add .
+          git commit -m "Update hosts"
+          git pull --rebase
+          git push
+        continue-on-error: true
