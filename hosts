@@ -263,6 +263,18 @@
 
 0.0.0.0 api-access.pangolin-sdk-toutiao1.com
 
+0.0.0.0 tnc100-bjlgy.snssdk.com
+0.0.0.0 pangolin-lq.snssdk.com
+0.0.0.0 pangolin-hl.snssdk.com
+0.0.0.0 pangolin-lf.snssdk.com
+0.0.0.0 tnc11-alisc1.snssdk.com
+0.0.0.0 tnc11-bjlgy.snssdk.com
+0.0.0.0 tnc100-alisc1.snssdk.com
+0.0.0.0 tnc3-aliec2.snssdk.com
+0.0.0.0 tnc3-alisc1.snssdk.com
+0.0.0.0 tnc3-bjlgy.snssdk.com
+0.0.0.0 pangolin.snssdk.com
+
 0.0.0.0 lf6-plat.pglstatp-toutiao.com
 0.0.0.0 lf9-plat.pglstatp-toutiao.com
 0.0.0.0 lf26-plat.pglstatp-toutiao.com
@@ -361,3 +373,6 @@
 0.0.0.0 mores.anythinktech.com
 0.0.0.0 da.anythinktech.com
 0.0.0.0 www.anythinktech.com
+
+0.0.0.0 utoken.umeng.com
+0.0.0.0 ulogs.umeng.com
