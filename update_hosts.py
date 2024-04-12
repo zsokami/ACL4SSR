@@ -14,8 +14,8 @@ def subdomains(domain):
         r['type'][0] == 'A' for r in x['attributes']['last_dns_records'])]
 
 
-def sub(domain):
-    return '\n'.join(f'0.0.0.0 {x}' for x in subdomains(domain))
+def sub(domain, fn=None):
+    return '\n'.join(f'0.0.0.0 {x}' for x in subdomains(domain) if not fn or fn(x))
 
 
 hosts = f'''127.0.0.1       localhost
@@ -50,6 +50,8 @@ hosts = f'''127.0.0.1       localhost
 
 0.0.0.0 api-access.pangolin-sdk-toutiao1.com
 
+{sub('snssdk.com', lambda x: x.startswith(('pangolin', 'tnc')))}
+
 {sub('pglstatp-toutiao.com')}
 
 {sub('ctobsnssdk.com')}
@@ -59,6 +61,9 @@ hosts = f'''127.0.0.1       localhost
 0.0.0.0 api.juliangcili.com
 
 {sub('anythinktech.com')}
+
+0.0.0.0 utoken.umeng.com
+0.0.0.0 ulogs.umeng.com
 '''
 
 with open('hosts', 'w') as f:
