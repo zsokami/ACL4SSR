@@ -111,6 +111,9 @@
 0.0.0.0 p2-lm.adukwai.com
 0.0.0.0 p1-lm.adukwai.com
 
+0.0.0.0 wiki.e.qq.com
+0.0.0.0 pre-edt.e.qq.com
+0.0.0.0 mkt.e.qq.com
 0.0.0.0 test-agent-api.e.qq.com
 0.0.0.0 info.e.qq.com
 0.0.0.0 agent-mini.e.qq.com
@@ -161,6 +164,7 @@
 0.0.0.0 sdk.e.qq.com
 0.0.0.0 cm.e.qq.com
 
+0.0.0.0 test-v2.gdt.qq.com
 0.0.0.0 test-rpt.gdt.qq.com
 0.0.0.0 reco-rpt.gdt.qq.com
 0.0.0.0 v2mi.gdt.qq.com
