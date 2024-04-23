@@ -112,6 +112,7 @@
 0.0.0.0 p2-lm.adukwai.com
 0.0.0.0 p1-lm.adukwai.com
 
+0.0.0.0 testcase.e.qq.com
 0.0.0.0 agent-demo.e.qq.com
 0.0.0.0 tadcase.e.qq.com
 0.0.0.0 test-tracking.e.qq.com
@@ -169,6 +170,7 @@
 0.0.0.0 sdk.e.qq.com
 0.0.0.0 cm.e.qq.com
 
+0.0.0.0 test-read.gdt.qq.com
 0.0.0.0 rtb.gdt.qq.com
 0.0.0.0 test-v2.gdt.qq.com
 0.0.0.0 test-rpt.gdt.qq.com
@@ -349,6 +351,7 @@
 
 0.0.0.0 api.juliangcili.com
 
+0.0.0.0 tk-h.anythinktech.com
 0.0.0.0 h5.anythinktech.com
 0.0.0.0 adx-bj-req.anythinktech.com
 0.0.0.0 adx-bj.anythinktech.com
