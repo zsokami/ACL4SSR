@@ -112,6 +112,7 @@
 0.0.0.0 p2-lm.adukwai.com
 0.0.0.0 p1-lm.adukwai.com
 
+0.0.0.0 race.e.qq.com
 0.0.0.0 testcase.e.qq.com
 0.0.0.0 agent-demo.e.qq.com
 0.0.0.0 tadcase.e.qq.com
@@ -170,6 +171,7 @@
 0.0.0.0 sdk.e.qq.com
 0.0.0.0 cm.e.qq.com
 
+0.0.0.0 tangram-config-test.gdt.qq.com
 0.0.0.0 test-read.gdt.qq.com
 0.0.0.0 rtb.gdt.qq.com
 0.0.0.0 test-v2.gdt.qq.com
