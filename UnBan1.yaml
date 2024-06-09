@@ -3,9 +3,10 @@ payload:
 - DOMAIN-SUFFIX,scs.f5.si
 - DOMAIN-SUFFIX,jsd.f5.si
 - DOMAIN-SUFFIX,ghraw.f5.si
-- DOMAIN,api.v1.mk
+- DOMAIN,url.v1.mk
 - DOMAIN,api.dler.io
-- DOMAIN,api.subcsub.com
+- DOMAIN,sub.id9.cc
+- DOMAIN,api-suc.0z.gs
 - DOMAIN,ghproxy.top
 - DOMAIN,ghproxy.net
 - DOMAIN,ghproxy.org

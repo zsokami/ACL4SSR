@@ -12,9 +12,10 @@ from requests.adapters import HTTPAdapter
 from urllib3 import Retry
 
 SC_ALIASES_HOSTS = [
-    ('v1', 'api.v1.mk'),
+    ('v1', 'url.v1.mk'),
     ('dler', 'api.dler.io'),
-    ('scs', 'api.subcsub.com'),
+    ('id9', 'sub.id9.cc'),
+    ('0z', 'api-suc.0z.gs'),
 ]
 
 GITHUB_REPOSITORY = os.getenv('GITHUB_REPOSITORY')

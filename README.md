@@ -10,9 +10,10 @@ https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Manni
 
 订阅转换短链（原订阅链接需 URL 编码）：
 
-- `https://mnnx.cc/v1?url={原订阅链接}` (api.v1.mk)
+- `https://mnnx.cc/v1?url={原订阅链接}` (url.v1.mk)
 - `https://mnnx.cc/dler?url={原订阅链接}` (api.dler.io)
-- `https://mnnx.cc/scs?url={原订阅链接}` (api.subcsub.com)
+- `https://mnnx.cc/id9?url={原订阅链接}` (sub.id9.cc)
+- `https://mnnx.cc/0z?url={原订阅链接}` (api-suc.0z.gs)
 
 订阅转换反代（自动去除无节点的分组等功能，项目地址：<https://github.com/zsokami/subcvt-mannix>）：
 
@@ -28,9 +29,10 @@ https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Mannix.ini
 
 订阅转换短链（原订阅链接需 URL 编码）：
 
-- `https://mnnx.cc/v1-nc?url={原订阅链接}` (api.v1.mk)
+- `https://mnnx.cc/v1-nc?url={原订阅链接}` (url.v1.mk)
 - `https://mnnx.cc/dler-nc?url={原订阅链接}` (api.dler.io)
-- `https://mnnx.cc/scs-nc?url={原订阅链接}` (api.subcsub.com)
+- `https://mnnx.cc/id9-nc?url={原订阅链接}` (sub.id9.cc)
+- `https://mnnx.cc/0z-nc?url={原订阅链接}` (api-suc.0z.gs)
 
 ---
 
