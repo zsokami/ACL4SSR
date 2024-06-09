@@ -1,21 +1,15 @@
 payload:
-- DOMAIN,3.7.cr
-- DOMAIN,7.7.cr
-- DOMAIN,c.7.cr
-- DOMAIN,i.7.cr
-- DOMAIN,j.7.cr
-- DOMAIN,n.7.cr
-- DOMAIN,r.7.cr
+- DOMAIN-SUFFIX,mnnx.cc
+- DOMAIN-SUFFIX,scs.f5.si
+- DOMAIN-SUFFIX,jsd.f5.si
+- DOMAIN-SUFFIX,ghraw.f5.si
 - DOMAIN,api.v1.mk
 - DOMAIN,api.dler.io
 - DOMAIN,api.subcsub.com
-- DOMAIN,api.tsutsu.one
-- DOMAIN,gh.api.99988866.xyz
 - DOMAIN,ghproxy.top
 - DOMAIN,ghproxy.net
 - DOMAIN,ghproxy.org
 - DOMAIN,ghproxy.cc
-- DOMAIN,mirror.ghproxy.com
 - DOMAIN,github.moeyy.xyz
 - DOMAIN,gh.idayer.com
 - DOMAIN-SUFFIX,gitmirror.com
