@@ -2,11 +2,11 @@ from pyperclip import copy
 
 
 re_emoji = r'''
-🇺🇸,USA?,美[国國]|华盛顿|波特兰|达拉斯|俄勒冈|凤凰城|菲尼克斯|费利蒙|弗里蒙特|硅谷|旧金山|拉斯维加斯|洛杉|圣何塞|圣荷西|圣塔?克拉拉|西雅图|芝加哥|哥伦布|纽约|阿什本,America|United[^a-z]*States|Washington|Portland|Dallas|Oregon|Phoenix|Fremont|Valley|Francisco|Vegas|Los[^a-z]*Angeles|San[^a-z]*Jose|Santa[^a-z]*Clara|Seattle|Chicago|Columbus|York|Ashburn
+🇺🇸,USA?,美[国國]|华盛顿|波特兰|达拉斯|俄勒冈|凤凰城|菲尼克斯|费利蒙|弗里蒙特|硅谷|旧金山|拉斯维加斯|洛杉|圣何塞|圣荷西|圣塔?克拉拉|西雅图|芝加哥|哥伦布|纽约|阿什本|纽瓦克,America|United[^a-z]*States|Washington|Portland|Dallas|Oregon|Phoenix|Fremont|Valley|Francisco|Vegas|Los[^a-z]*Angeles|San[^a-z]*Jose|Santa[^a-z]*Clara|Seattle|Chicago|Columbus|York|Ashburn|Newark
 🇭🇰,HKG?|CMI|HGC|HKT|HKBN|WTT|PCCW,香港,Hong
-🇯🇵,JPN?,日本|东京|大阪|名古屋|埼玉,Japan|Tokyo|Osaka|Nagoya|Saitama
+🇯🇵,JPN?,日本|东京|大阪|名古屋|埼玉|福冈,Japan|Tokyo|Osaka|Nagoya|Saitama|Fukuoka
 🇸🇬,SGP?,新加坡|[狮獅]城,Singapore
-🇹🇼,TWN?|CHT|HiNet,[台臺][湾灣]|新[北竹]|彰化,Taiwan
+🇹🇼,TWN?|CHT|HiNet,[台臺][湾灣北]|新[北竹]|彰化|高雄,Taiwan|Taipei|Hsinchu|Changhua|Kaohsiung
 🇷🇺,RUS?,俄[国國]|俄[罗羅]斯|莫斯科|圣彼得堡|西伯利亚|伯力|哈巴罗夫斯克,Russia|Moscow|Petersburg|Siberia|Khabarovsk
 🇬🇧,UK|GBR?,英[国國]|伦敦|加的夫,Kingdom|England|London|Cardiff
 🇨🇦,CAN?,加拿大|[枫楓][叶葉]|多伦多|蒙特利尔|温哥华,Canada|Toronto|Montreal|Vancouver
