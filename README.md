@@ -18,7 +18,7 @@ https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Manni
 
 订阅转换反代（自动去除无节点的分组等功能，项目地址：<https://github.com/zsokami/subcvt-mannix>）：
 
-`https://scmx.cc/?url={原订阅链接}`
+`https://sc.mnnx.cc/?url={原订阅链接}`
 
 ## ACL4SSR_Online_Mannix.ini
 
