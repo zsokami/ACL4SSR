@@ -3,6 +3,7 @@
 
 # 扩展 APP 广告拦截规则，对某些影视/动漫 APP 有加速奇效
 
+0.0.0.0 devdoc.sigmob.cn
 0.0.0.0 qatool.sigmob.cn
 0.0.0.0 testn.sigmob.cn
 0.0.0.0 ssview.sigmob.cn
