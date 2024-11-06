@@ -40,7 +40,7 @@ https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Mannix.ini
 
 ### V3
 
-扩展 APP 广告拦截规则，对某些影视/动漫 APP 有加速奇效：
+添加某些影视/动漫 APP 广告拦截规则：
 
 https://raw.githubusercontent.com/zsokami/ACL4SSR/main/BanProgramAD1.list
 
@@ -103,6 +103,6 @@ url-test
 - 间隔时间 300秒 -> 15/30秒
 - 容差 50/150毫秒 -> 100/300毫秒
 
-正则匹配大小写、简繁体，更好的匹配中转、IPLC节点
+正则匹配大小写、简繁体，更好地匹配中转、IPLC节点
 
 LocalAreaNetwork.list 使用 DIRECT
