@@ -1,8 +1,13 @@
+
+## 自定义去除国家和地区订阅
+https://raw.githubusercontent.com/xjfuuu/ACL4SSR/custom/ACL4SSR_Online_Mannix_custom.ini
+
 ## ACL4SSR_Online_Full_Mannix.ini
+
 
 自定义 订阅转换 配置转换 规则转换 的远程配置：
 
-https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Mannix.ini
+https://raw.githubusercontent.com/xjfuuu/ACL4SSR/custom/ACL4SSR_Online_Full_Mannix.ini
 
 修改自 https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full.ini
 
@@ -16,7 +21,7 @@ https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Manni
 - `https://mnnx.cc/0z?url={原订阅链接}` (api-suc.0z.gs)
 - `https://max.mnnx.cc/{自定义后端地址}?url={原订阅链接}`
 
-订阅转换反代（自动去除无节点的分组等功能，项目地址：<https://github.com/zsokami/subcvt-mannix>）：
+订阅转换反代（自动去除无节点的分组等功能，项目地址：<https://github.com/xjfuuu/subcvt-mannix>）：
 
 `https://sc.mnnx.cc/?url={原订阅链接}`
 
@@ -24,7 +29,7 @@ https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Manni
 
 去除国家/地区：
 
-https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Mannix.ini
+https://raw.githubusercontent.com/xjfuuu/ACL4SSR/custom/ACL4SSR_Online_Mannix.ini
 
 远程配置短链：`https://mnnx.cc/config-nc`
 
@@ -42,11 +47,11 @@ https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Mannix.ini
 
 扩展 APP 广告拦截规则，对某些影视/动漫 APP 有加速奇效：
 
-https://raw.githubusercontent.com/zsokami/ACL4SSR/main/BanProgramAD1.list
+https://raw.githubusercontent.com/xjfuuu/ACL4SSR/custom/BanProgramAD1.list
 
 附 hosts 文件（自动更新）：
 
-https://raw.githubusercontent.com/zsokami/ACL4SSR/main/hosts
+https://raw.githubusercontent.com/xjfuuu/ACL4SSR/custom/hosts
 
 ---
 
@@ -56,7 +61,7 @@ https://raw.githubusercontent.com/zsokami/ACL4SSR/main/hosts
 
 **需去除订阅转换链接中的参数 `emoji=true/false` 才能生效**，参考例子：
 
-`https://api.dler.io/sub?target=clash&udp=true&scv=true&config=https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Mannix.ini&url={原订阅链接}`
+`https://api.dler.io/sub?target=clash&udp=true&scv=true&config=https://raw.githubusercontent.com/xjfuuu/ACL4SSR/custom/ACL4SSR_Online_Full_Mannix.ini&url={原订阅链接}`
 
 ---
 
