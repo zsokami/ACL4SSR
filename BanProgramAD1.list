@@ -1,11 +1,36 @@
-# 扩展 APP 广告拦截规则，对某些影视/动漫 APP 有加速奇效
+# 某些影视/动漫 APP 广告拦截规则
 
-DOMAIN-SUFFIX,sigmob.cn
+DOMAIN,dc.sigmob.cn
 DOMAIN,open.e.kuaishou.com
 DOMAIN,open.e.kuaishou.cn
 DOMAIN-SUFFIX,adkwai.com
 DOMAIN-SUFFIX,adukwai.com
 DOMAIN-SUFFIX,pangolin-sdk-toutiao1.com
+DOMAIN,pangolin.snssdk.com
+DOMAIN,pangolin-lq.snssdk.com
+DOMAIN,pangolin-hl.snssdk.com
+DOMAIN,pangolin-lf.snssdk.com
+DOMAIN,tnc3-bjlgy.snssdk.com
+DOMAIN,tnc3-alisc1.snssdk.com
+DOMAIN,tnc3-aliec2.snssdk.com
+DOMAIN,tnc11-bjlgy.snssdk.com
+DOMAIN,tnc11-alisc1.snssdk.com
+DOMAIN,tnc11-aliec2.snssdk.com
+DOMAIN,tnc100-bjlgy.snssdk.com
+DOMAIN,tnc100-alisc1.snssdk.com
+DOMAIN,tnc100-aliec2.snssdk.com
+DOMAIN,tnc0-bjlgy.zijieapi.com
+DOMAIN,tnc0-alisc1.zijieapi.com
+DOMAIN,tnc0-aliec2.zijieapi.com
+DOMAIN,tnc3-bjlgy.zijieapi.com
+DOMAIN,tnc3-alisc1.zijieapi.com
+DOMAIN,tnc3-aliec2.zijieapi.com
+DOMAIN,tnc11-bjlgy.zijieapi.com
+DOMAIN,tnc11-alisc1.zijieapi.com
+DOMAIN,tnc11-aliec2.zijieapi.com
+DOMAIN,tnc100-bjlgy.zijieapi.com
+DOMAIN,tnc100-alisc1.zijieapi.com
+DOMAIN,tnc100-aliec2.zijieapi.com
 DOMAIN-SUFFIX,ctobsnssdk.com
 DOMAIN,api.hzsanjiaomao.com
 DOMAIN,api.juliangcili.com

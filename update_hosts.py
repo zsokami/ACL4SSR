@@ -21,9 +21,9 @@ def sub(domain, fn=None):
 hosts = f'''127.0.0.1       localhost
 ::1             ip6-localhost
 
-# 扩展 APP 广告拦截规则，对某些影视/动漫 APP 有加速奇效
+# 某些影视/动漫 APP 广告拦截规则
 
-{sub('sigmob.cn')}
+0.0.0.0 dc.sigmob.cn
 
 {sub('ugdtimg.com')}
 
@@ -52,6 +52,8 @@ hosts = f'''127.0.0.1       localhost
 
 {sub('snssdk.com', lambda x: x.startswith(('pangolin', 'tnc')))}
 
+{sub('zijieapi.com', lambda x: x.startswith(('tnc')))}
+
 {sub('pglstatp-toutiao.com')}
 
 {sub('ctobsnssdk.com')}
@@ -64,6 +66,11 @@ hosts = f'''127.0.0.1       localhost
 
 0.0.0.0 utoken.umeng.com
 0.0.0.0 ulogs.umeng.com
+
+0.0.0.0 mobads.baidu.com
+0.0.0.0 mobads-logs.baidu.com
+0.0.0.0 als.baidu.com
+0.0.0.0 hmma.baidu.com
 '''
 
 with open('hosts', 'w') as f:
