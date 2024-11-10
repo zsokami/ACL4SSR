@@ -49,12 +49,12 @@ re_emoji = r'''
 🇷🇸,RS|SRB,塞尔维亚,Serbia
 🇺🇿,UZB?,乌兹别克斯坦,Uzbekistan
 🇦🇷,ARG?,阿根廷,Argentina
-🇲🇰,MKD?,前南斯拉夫|马其顿,Macedonia
+🇲🇰,MKD?,前南斯拉夫|马其顿|北马,Macedonia
 🇸🇰,SV?K,斯洛伐克,Slovensko
 🇻🇪,VEN?,委内瑞拉,Venezuela
 🇬🇱,GR?L,格陵兰,Greenland
 🇵🇸,PSE?,巴勒斯坦,Palestine
-🇧🇬,BGR?,保加利亚,Bulgaria
+🇧🇬,BGR?,保加利亚|索[非菲]亚,Bulgaria|Sofia
 🇨🇴,COL?,哥伦比亚,Colombia
 🇬🇮,GIB?,直布罗陀,Gibraltar
 🇬🇹,GTM?,危地马拉,Guatemala
@@ -64,7 +64,7 @@ re_emoji = r'''
 🇰🇭,KHM?,柬埔寨,Cambodia
 🇱🇹,LTU?,立陶宛,Lietuvos
 🇲🇳,MNG?,蒙古,Mongolia
-🇲🇾,MYS?,马来,Malaysia
+🇲🇾,MYS?,马来|吉隆坡,Malaysia|Kuala
 🇵🇰,PA?K,巴基斯坦,Pakistan
 🇵🇹,PR?T,葡萄牙,Portugal
 🇸🇴,SOM?,索马里,Somalia
