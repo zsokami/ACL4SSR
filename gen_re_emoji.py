@@ -2,7 +2,7 @@ from pyperclip import copy
 
 
 re_emoji = r'''
-🇺🇸,USA?,美[国國]|华盛顿|波特兰|达拉斯|俄勒冈|凤凰城|菲尼克斯|费利蒙|弗里蒙特|硅谷|旧金山|拉斯维加斯|洛杉|圣何塞|圣荷西|圣塔?克拉拉|西雅图|芝加哥|哥伦布|纽约|阿什本|纽瓦克,America|United[^a-z]*States|Washington|Portland|Dallas|Oregon|Phoenix|Fremont|Valley|Francisco|Vegas|Los[^a-z]*Angeles|San[^a-z]*Jose|Santa[^a-z]*Clara|Seattle|Chicago|Columbus|York|Ashburn|Newark
+🇺🇸,USA?,美[国國]|华盛顿|波特兰|达拉斯|俄勒冈|凤凰城|菲尼克斯|费利蒙|弗里蒙特|硅谷|旧金山|拉斯维加斯|洛杉|圣何塞|圣荷西|圣塔?克拉拉|西雅图|芝加哥|哥伦布|纽约|阿什本|纽瓦克|丹佛|加利福尼亚|弗吉尼亚,America|United[^a-z]*States|Washington|Portland|Dallas|Oregon|Phoenix|Fremont|Valley|Francisco|Vegas|Los[^a-z]*Angeles|San[^a-z]*Jose|Santa[^a-z]*Clara|Seattle|Chicago|Columbus|York|Ashburn|Newark|Denver|California|Virginia
 🇭🇰,HKG?|CMI|HGC|HKT|HKBN|WTT|PCCW,香港,Hong
 🇯🇵,JPN?,日本|东京|大阪|名古屋|埼玉|福冈,Japan|Tokyo|Osaka|Nagoya|Saitama|Fukuoka
 🇸🇬,SGP?,新加坡|[狮獅]城,Singapore
@@ -13,7 +13,8 @@ re_emoji = r'''
 🇫🇷,FRA?,法[国國]|巴黎|马赛,France|Paris|Marseille|Marselha
 🇰🇵,KP|PRK,朝[鲜鮮],North[^a-z]*Korea
 🇰🇷,KO?R,[韩韓][国國]|首尔|春川,Korea|Seoul|Chuncheon
-🇩🇪,DEU?,德[国國]|法兰克福,Germany|Frankfurt
+🇮🇪,IE|IRL,爱尔兰|都柏林,Ireland|Dublin
+🇩🇪,DEU?,德[国國]|法兰克福|柏林,Germany|Frankfurt|Berlin
 🇮🇳,IND?,印度|孟买|加尔各答|贾坎德|泰米尔纳德|海得拉巴,India|Mumbai|Kolkata|Jharkhand|Tamil|Hyderabad
 🇮🇱,IL|ISR,以色列|耶路撒冷,Israel|Jerusalem|Yerushalayim
 🇦🇺,AUS?,澳大利[亚亞]|澳洲|悉尼|墨尔本,Australia|Sydney|Melbourne
@@ -23,7 +24,6 @@ re_emoji = r'''
 🇲🇴,MO|MAC|CTM,澳[门門],Macao
 🇿🇦,ZAF?,南非|约(翰内斯)?堡,Africa|Johannesburg
 🇨🇭,CHE?,瑞士|苏黎世,Switzerland|Zurich
-🇮🇪,IE|IRL,爱尔兰|都柏林,Ireland|Dublin
 🇮🇩,IDN?,印尼|印度尼西亚|雅加达,Indonesia|Jakarta
 🇬🇶,GN?Q,赤道几内亚,Equatorial[^a-z]*Guinea
 🇫🇮,FIN?,芬兰|赫尔辛基,Finland|Helsinki
@@ -39,7 +39,8 @@ re_emoji = r'''
 🇸🇮,SI|SVN,斯洛文尼亚,Slovenia
 🇳🇱,NLD?,荷兰|阿姆斯特丹,Netherlands
 🇪🇪,EE|EST,爱沙尼亚,Estonia
-🇮🇹,ITA?,意大利|米兰,Italy|Milan
+🇷🇴,ROU?,罗马[尼利]亚,Romania
+🇮🇹,ITA?,意大利|米兰|罗马,Italy|Milan|Rome
 🇱🇺,LUX?,卢森堡,Luxembo?urg
 🇵🇭,PHL?,菲律宾,Philippines
 🇺🇦,UA|UKR,乌克兰,Ukraine
@@ -78,7 +79,6 @@ re_emoji = r'''
 🇲🇩,MDA?,摩尔多瓦,Moldova
 🇳🇬,NGA?,尼日利亚,Nigeria
 🇳🇿,NZL?,新西兰,Zealand
-🇷🇴,ROU?,罗马[尼利]亚,Romania
 🇧🇧,BR?B,巴巴多斯,Barbados
 🇹🇳,TU?N,突尼斯,Tunisia
 🇺🇾,UR?Y,乌拉圭,Uruguay
