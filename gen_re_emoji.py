@@ -2,7 +2,7 @@ from pyperclip import copy
 
 
 re_emoji = r'''
-🇺🇸,USA?,美[国國]|华盛顿|波特兰|达拉斯|俄勒冈|凤凰城|菲尼克斯|费利蒙|弗里蒙特|硅谷|旧金山|拉斯维加斯|洛杉|圣何塞|圣荷西|圣塔?克拉拉|西雅图|芝加哥|哥伦布|纽约|阿什本|纽瓦克|丹佛|加利福尼亚|弗吉尼亚,America|United[^a-z]*States|Washington|Portland|Dallas|Oregon|Phoenix|Fremont|Valley|Francisco|Vegas|Los[^a-z]*Angeles|San[^a-z]*Jose|Santa[^a-z]*Clara|Seattle|Chicago|Columbus|York|Ashburn|Newark|Denver|California|Virginia
+🇺🇸,USA?|UMI?,美[国國]|华盛顿|波特兰|达拉斯|俄勒冈|凤凰城|菲尼克斯|费利蒙|弗里蒙特|硅谷|旧金山|拉斯维加斯|洛杉|圣何塞|圣荷西|圣塔?克拉拉|西雅图|芝加哥|哥伦布|纽约|阿什本|纽瓦克|丹佛|加利福尼亚|弗吉尼亚,America|United[^a-z]*States|Washington|Portland|Dallas|Oregon|Phoenix|Fremont|Valley|Francisco|Vegas|Los[^a-z]*Angeles|San[^a-z]*Jose|Santa[^a-z]*Clara|Seattle|Chicago|Columbus|York|Ashburn|Newark|Denver|California|Virginia
 🇭🇰,HKG?|CMI|HGC|HKT|HKBN|WTT|PCCW,香港,Hong
 🇯🇵,JPN?,日本|东京|大阪|名古屋|埼玉|福冈,Japan|Tokyo|Osaka|Nagoya|Saitama|Fukuoka
 🇸🇬,SGP?,新加坡|[狮獅]城,Singapore
@@ -97,7 +97,7 @@ re_emoji = r'''
 🇲🇲,MMR?,缅甸,Myanmar
 🇵🇱,PO?L,波兰,Poland
 🇨🇾,CYP?,塞浦路斯,Cyprus
-🇪🇺,EUE?,欧洲,Europe
+🇪🇺,EUE?,欧[洲盟],Euro
 🇬🇷,GRC?,希腊,Greece
 🇯🇴,JOR?,约旦,Jordan
 🇱🇻,LVA?,拉脱维亚,Latvia
