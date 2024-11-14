@@ -25,6 +25,7 @@ re_emoji = r'''
 🇿🇦,ZAF?,南非|约(翰内斯)?堡,Africa|Johannesburg
 🇨🇭,CHE?,瑞士|苏黎世,Switzerland|Zurich
 🇮🇩,IDN?,印尼|印度尼西亚|雅加达,Indonesia|Jakarta
+🇸🇲,SMR?,圣[马玛][力丽][诺络],San[^a-z]*Marino
 🇬🇶,GN?Q,赤道几内亚,Equatorial[^a-z]*Guinea
 🇫🇮,FIN?,芬兰|赫尔辛基,Finland|Helsinki
 🇹🇭,THA?,泰国|曼谷,Thailand|Bangkok
@@ -47,13 +48,17 @@ re_emoji = r'''
 🇦🇿,AZE?,阿塞拜疆,Azerbaijan
 🇰🇬,KGZ?,吉尔吉斯斯坦,Kyrgyzstan
 🇰🇿,KA?Z,哈萨克斯坦,Kazakhstan
+🇦🇬,AT?G,安提瓜和巴布达,Antigua
+🇹🇲,TK?M,土库曼,Turkmenistan
+🇦🇫,AFG?,阿富汗,Afghanistan
+🇸🇧,SL?B,所罗门群岛,Solomon
 🇷🇸,RS|SRB,塞尔维亚,Serbia
 🇺🇿,UZB?,乌兹别克斯坦,Uzbekistan
 🇦🇷,ARG?,阿根廷,Argentina
 🇲🇰,MKD?,前南斯拉夫|马其顿|北马,Macedonia
 🇸🇰,SV?K,斯洛伐克,Slovensko
 🇻🇪,VEN?,委内瑞拉,Venezuela
-🇬🇱,GR?L,格陵兰,Greenland
+🇬🇱,GR?L,格[陵林]兰,Greenland
 🇵🇸,PSE?,巴勒斯坦,Palestine
 🇧🇬,BGR?,保加利亚|索[非菲]亚,Bulgaria|Sofia
 🇨🇴,COL?,哥伦比亚,Colombia
@@ -64,11 +69,14 @@ re_emoji = r'''
 🇿🇼,ZWE?,津巴布韦,Zimbabwe
 🇰🇭,KHM?,柬埔寨,Cambodia
 🇱🇹,LTU?,立陶宛,Lietuvos
+🇧🇲,BMU?,百慕大,Bermuda
+🇫🇴,FR?O,法罗群岛,Faroe
 🇲🇳,MNG?,蒙古,Mongolia
 🇲🇾,MYS?,马来|吉隆坡,Malaysia|Kuala
 🇵🇰,PA?K,巴基斯坦,Pakistan
 🇵🇹,PR?T,葡萄牙,Portugal
 🇸🇴,SOM?,索马里,Somalia
+🇦🇼,AB?W,阿鲁巴,Aruba
 🇩🇰,DN?K,丹麦,Denmark
 🇮🇸,ISL?,冰岛,Iceland
 🇦🇱,ALB?,阿尔巴尼亚,Albania
@@ -117,6 +125,10 @@ re_emoji = r'''
 🇶🇦,QAT?,卡塔尔,Qatar
 🇱🇾,LB?Y,利比亚,Libya
 🇧🇭,BHR?,巴林,Bahrain
+🇾🇪,YEM?,也门,Yemen
+🇸🇩,SDN?,苏丹,Sudan
+🇨🇺,CUB?,古巴,Cuba
+🇲🇱,MLI?,马里,Mali
 🇫🇯,FJI?,斐济,Fiji
 '''.splitlines()
 
