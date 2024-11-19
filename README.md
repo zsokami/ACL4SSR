@@ -38,6 +38,16 @@ https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Mannix.ini
 
 ---
 
+### V4
+
+性能优化：
+
+原版订阅转换后端使用本配置时，若节点过多，转换速度很慢。
+建议使用性能优化后端（<https://github.com/zsokami/subconverter>，暂无公共服务），
+该后端通过预编译和缓存正则，大幅提升转换速度。
+
+---
+
 ### V3
 
 添加某些影视/动漫 APP 广告拦截规则：
