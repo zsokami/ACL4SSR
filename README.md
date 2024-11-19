@@ -50,6 +50,7 @@ https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Manni
 ```
 
 原配置不在已知名单中的（国内外）域名会先通过当地 DNS 服务器解析一次。
+
 添加 no-resolve 后，不在已知名单中的（国内外）域名将直接✈️ 起飞。
 
 ---
@@ -59,7 +60,9 @@ https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Manni
 性能优化：
 
 原版订阅转换后端使用本配置时，若节点过多，转换速度很慢。
-建议使用性能优化后端（<https://github.com/zsokami/subconverter>，暂无公共服务），
+
+建议使用性能优化后端（<https://github.com/zsokami/subconverter>，暂无公共服务）
+
 该后端通过预编译和缓存正则，大幅提升转换速度。
 
 ---
