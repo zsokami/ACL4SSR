@@ -36,13 +36,15 @@ https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Mannix.ini
 - `https://mnnx.cc/0z-nc?url={原订阅链接}` (api-suc.0z.gs)
 - `https://min.mnnx.cc/{自定义后端地址}?url={原订阅链接}`
 
-## ACL4SSR_Online_Full_Mannix_No_DNS_Leak.ini
+## ACL4SSR_Online_(Full_)Mannix_No_DNS_Leak.ini
 
 无 DNS 泄漏：
 
 https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Mannix_No_DNS_Leak.ini
 
-和 [ACL4SSR_Online_Full_Mannix.ini](https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Mannix.ini) 只有一行差异：
+https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Mannix_No_DNS_Leak.ini
+
+和原配置只有一行差异：
 
 ```diff
 - ruleset=🛩️ ‍墙内,[]GEOIP,CN
