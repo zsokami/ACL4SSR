@@ -97,6 +97,7 @@ re_emoji = r'''
 🇲🇲,MMR?,缅甸,Myanmar
 🇵🇱,PO?L,波兰,Poland
 🇨🇾,CYP?,塞浦路斯,Cyprus
+🇪🇺,EUE?,欧[洲盟],Euro
 🇬🇷,GRC?,希腊,Greece
 🇯🇴,JOR?,约旦,Jordan
 🇱🇻,LVA?,拉脱维亚,Latvia
@@ -129,7 +130,6 @@ re_emoji = r'''
 🇨🇺,CUB?,古巴,Cuba
 🇲🇱,MLI?,马里,Mali
 🇫🇯,FJI?,斐济,Fiji
-🇪🇺,EUE?,欧[洲盟],Euro
 '''.splitlines()
 
 re_emoji = [line.split(',') for line in map(str.strip, re_emoji) if line]
