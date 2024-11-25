@@ -15,6 +15,7 @@ re_emoji = r'''
 🇰🇷,KO?R,[韩韓][国國]|首尔|春川,Korea|Seoul|Chuncheon
 🇮🇪,IE|IRL,爱尔兰|都柏林,Ireland|Dublin
 🇩🇪,DEU?,德[国國]|法兰克福|柏林,Germany|Frankfurt|Berlin
+🇮🇩,IDN?,印尼|印度尼西亚|雅加达,Indonesia|Jakarta
 🇮🇳,IND?,印度|孟买|加尔各答|贾坎德|泰米尔纳德|海得拉巴,India|Mumbai|Kolkata|Jharkhand|Tamil|Hyderabad
 🇮🇱,IL|ISR,以色列|耶路撒冷,Israel|Jerusalem|Yerushalayim
 🇦🇺,AUS?,澳大利[亚亞]|澳洲|悉尼|墨尔本,Australia|Sydney|Melbourne
@@ -24,7 +25,6 @@ re_emoji = r'''
 🇲🇴,MO|MAC|CTM,澳[门門],Macao
 🇿🇦,ZAF?,南非|约(翰内斯)?堡,Africa|Johannesburg
 🇨🇭,CHE?,瑞士|苏黎世,Switzerland|Zurich
-🇮🇩,IDN?,印尼|印度尼西亚|雅加达,Indonesia|Jakarta
 🇸🇲,SMR?,圣[马玛][力丽][诺络],San[^a-z]*Marino
 🇬🇶,GN?Q,赤道几内亚,Equatorial[^a-z]*Guinea
 🇫🇮,FIN?,芬兰|赫尔辛基,Finland|Helsinki
