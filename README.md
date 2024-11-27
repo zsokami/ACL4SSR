@@ -42,7 +42,11 @@ https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Mannix.ini
 
 https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Mannix_No_DNS_Leak.ini
 
+`https://mnnx.cc/config-ndl`
+
 https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Mannix_No_DNS_Leak.ini
+
+`https://mnnx.cc/config-nc-ndl`
 
 和原配置只有一行差异：
 
