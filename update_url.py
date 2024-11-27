@@ -27,8 +27,10 @@ URL_SHORTENER_OPTIONS = {'host': URL_SHORTENER_HOST, 'api_key': URL_SHORTENER_AP
 
 GITHUB_REPOSITORY_RAW_URL_PREFIX = f'https://raw.githubusercontent.com/{GITHUB_REPOSITORY}/'
 
-ini_file_name = next((f for f in os.listdir() if f.endswith('.ini') and 'Full' in f), None)
-ini_file_name_nocountry = next((f for f in os.listdir() if f.endswith('.ini') and 'Full' not in f), None)
+ini_file_name = 'ACL4SSR_Online_Full_Mannix.ini'
+ini_file_name_nocountry = 'ACL4SSR_Online_Mannix.ini'
+ini_file_name_nodnsleak = 'ACL4SSR_Online_Full_Mannix_No_DNS_Leak.ini'
+ini_file_name_nocountry_nodnsleak = 'ACL4SSR_Online_Mannix_No_DNS_Leak.ini'
 
 
 if URL_SHORTENER_API_KEY:
@@ -644,7 +646,9 @@ if URL_SHORTENER_API_KEY:
 
     upsert_args = [
         *aliases_urls(ini_file_name),
-        *aliases_urls(ini_file_name_nocountry, '-nc')
+        *aliases_urls(ini_file_name_nocountry, '-nc'),
+        *aliases_urls(ini_file_name_nodnsleak, '-ndl'),
+        *aliases_urls(ini_file_name_nocountry_nodnsleak, '-nc-ndl'),
     ]
 
     with ThreadPoolExecutor(len(upsert_args)) as executor:
@@ -653,7 +657,7 @@ if URL_SHORTENER_API_KEY:
             for url in sc_urls:
                 print(f"{url}?url=")
 else:
-    for name in [ini_file_name, ini_file_name_nocountry]:
+    for name in [ini_file_name, ini_file_name_nocountry, ini_file_name_nodnsleak, ini_file_name_nocountry_nodnsleak]:
         if name:
             print(f"{GITHUB_REPOSITORY_RAW_URL_PREFIX}{GITHUB_REF_NAME}/{name}")
             _url = f"/sub?target=clash&udp=true&scv=true&config=https://raw.githubusercontent.com/{GITHUB_REPOSITORY}/{GITHUB_REF_NAME}/{name}?url="
