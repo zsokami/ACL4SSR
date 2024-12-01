@@ -7,7 +7,7 @@ re_emoji = r'''
 🇯🇵,JPN?,日本|东京|大阪|名古屋|埼玉|福冈,Japan|Tokyo|Osaka|Nagoya|Saitama|Fukuoka
 🇸🇬,SGP?,新加坡|[狮獅]城,Singapore
 🇹🇼,TWN?|CHT|HiNet,[台臺][湾灣北]|新[北竹]|彰化|高雄,Taiwan|Taipei|Hsinchu|Changhua|Kaohsiung
-🇷🇺,RUS?,俄[国國]|俄[罗羅]斯|莫斯科|圣彼得堡|西伯利亚|伯力|哈巴罗夫斯克,Russia|Moscow|Petersburg|Siberia|Khabarovsk
+🇷🇺,RUS?,俄[国國]|俄[罗羅]斯|莫斯科|圣彼得堡|西伯利亚|伯力|哈巴罗夫斯克,Russia|Moscow|Peters?burg|Siberia|Khabarovsk
 🇬🇧,UK|GBR?,英[国國]|伦敦|加的夫,Kingdom|England|London|Cardiff
 🇨🇦,CAN?,加拿大|[枫楓][叶葉]|多伦多|蒙特利尔|温哥华,Canada|Toronto|Montreal|Vancouver
 🇫🇷,FRA?,法[国國]|巴黎|马赛,France|Paris|Marseille|Marselha
