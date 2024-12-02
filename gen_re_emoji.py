@@ -14,7 +14,7 @@ re_emoji = r'''
 🇰🇵,KP|PRK,朝[鲜鮮],North[^a-z]*Korea
 🇰🇷,KO?R,[韩韓][国國]|首尔|春川,Korea|Seoul|Chuncheon
 🇮🇪,IE|IRL,爱尔兰|都柏林,Ireland|Dublin
-🇩🇪,DEU?,德[国國]|法兰克福|柏林,Germany|Frankfurt|Berlin
+🇩🇪,DEU?,德[国國]|法兰克福|柏林,German|Frankfurt|Berlin
 🇮🇩,IDN?,印尼|印度尼西亚|雅加达,Indonesia|Jakarta
 🇮🇳,IND?,印度|孟买|加尔各答|贾坎德|泰米尔纳德|海得拉巴|班加罗尔,India|Mumbai|Kolkata|Jharkhand|Tamil|Hyderabad|Bangalore
 🇮🇱,IL|ISR,以色列|耶路撒冷,Israel|Jerusalem|Yerushalayim
