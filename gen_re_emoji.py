@@ -40,7 +40,7 @@ re_emoji = r'''
 🇸🇮,SI|SVN,斯洛文尼亚,Slovenia
 🇳🇱,NLD?,荷兰|阿姆斯特丹,Netherlands|Amsterdam
 🇪🇪,EE|EST,爱沙尼亚,Estonia
-🇷🇴,ROU?,罗马[尼利]亚,Romania
+🇷🇴,ROU?,罗马[尼利]亚|布加勒斯特,Romania|Bucharest
 🇮🇹,ITA?,意大利|米兰|罗马,Italy|Milan|Rome
 🇱🇺,LUX?,卢森堡,Luxembo?urg
 🇵🇭,PHL?,菲律宾|马尼拉,Philippines|Manila
