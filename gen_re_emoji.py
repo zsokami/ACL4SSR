@@ -16,6 +16,7 @@ re_emoji = r'''
 🇩🇪,DEU?,德[国國]|法兰克福|柏林|杜塞尔多夫,German|Frankfurt|Berlin|D[üu]sseldorf
 🇮🇩,IDN?,印尼|印度尼西亚|雅加达,Indonesia|Jakarta
 🇮🇳,IND?,印度|孟买|加尔各答|贾坎德|泰米尔纳德|海得拉巴|班加罗尔,India|Mumbai|Kolkata|Jharkhand|Tamil|Hyderabad|Bangalore
+🇲🇲,MMR?|YGN,缅甸|[内奈]比[都多]|仰光,Myanmar|Naypyidaw|Nay[^a-z]*Pyi[^a-z]*Taw|Yangon|Rangoon
 🇮🇱,IL|ISR,以色列|耶路撒冷,Israel|Jerusalem|Yerushalayim
 🇦🇺,AUS?,澳大利[亚亞]|澳洲|悉尼|墨尔本|布里斯[班本],Australia|Sydney|Melbourne|Brisbane
 🇦🇪,AR?E|UAE,阿联酋|迪拜|阿布扎比|富查伊拉,Emirates|Dubai|Dhabi|Fujairah
@@ -100,7 +101,6 @@ re_emoji = r'''
 🇪🇨,ECU?,厄瓜多尔|基多,Ecuador|Quito
 🇲🇦,MAR?,摩洛哥|拉巴特,Morocco|Rabat
 🇦🇲,AR?M,亚美尼亚|埃里温|耶烈万,Armenia|Yerevan
-🇲🇲,MMR?,缅甸|[内奈]比[都多],Myanmar|Naypyidaw|Nay[^a-z]*Pyi[^a-z]*Taw
 🇵🇱,PO?L,波兰|华沙,Poland|Warsaw
 🇨🇾,CYP?,塞浦路斯|尼科西亚,Cyprus|Nicosia
 🇪🇺,EUE?,欧[洲盟],Euro
