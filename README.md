@@ -10,11 +10,10 @@ https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Manni
 
 订阅转换短链（原订阅链接需 URL 编码）：
 
-- `https://mnnx.cc/v1?url={原订阅链接}` (url.v1.mk)
-- `https://mnnx.cc/dler?url={原订阅链接}` (api.dler.io)
-- `https://mnnx.cc/id9?url={原订阅链接}` (sub.id9.cc)
+- `https://mnnx.cc/v1?url={原订阅链接}` (api.v1.mk)
+- `https://mnnx.cc/2c?url={原订阅链接}` (api.2c.lol)
 - `https://mnnx.cc/0z?url={原订阅链接}` (api-suc.0z.gs)
-- `https://max.mnnx.cc/{自定义后端地址}?url={原订阅链接}`
+- `https://mnnx.cc/{自定义后端地址}?url={原订阅链接}`
 
 订阅转换反代（自动去除无节点的分组等功能，项目地址：<https://github.com/zsokami/subcvt-mannix>）：
 
@@ -26,14 +25,13 @@ https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Manni
 
 https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Mannix.ini
 
-远程配置短链：`https://mnnx.cc/config-nc`
+远程配置短链：`https://min.mnnx.cc/config`
 
 订阅转换短链（原订阅链接需 URL 编码）：
 
-- `https://mnnx.cc/v1-nc?url={原订阅链接}` (url.v1.mk)
-- `https://mnnx.cc/dler-nc?url={原订阅链接}` (api.dler.io)
-- `https://mnnx.cc/id9-nc?url={原订阅链接}` (sub.id9.cc)
-- `https://mnnx.cc/0z-nc?url={原订阅链接}` (api-suc.0z.gs)
+- `https://min.mnnx.cc/v1?url={原订阅链接}` (api.v1.mk)
+- `https://min.mnnx.cc/2c?url={原订阅链接}` (api.2c.lol)
+- `https://min.mnnx.cc/0z?url={原订阅链接}` (api-suc.0z.gs)
 - `https://min.mnnx.cc/{自定义后端地址}?url={原订阅链接}`
 
 ## ACL4SSR_Online_(Full_)Mannix_No_DNS_Leak.ini
@@ -42,11 +40,19 @@ https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Mannix.ini
 
 https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Mannix_No_DNS_Leak.ini
 
-`https://mnnx.cc/config-ndl`
+- `https://ndl.mnnx.cc/config`
+- `https://ndl.mnnx.cc/v1?url={原订阅链接}` (api.v1.mk)
+- `https://ndl.mnnx.cc/2c?url={原订阅链接}` (api.2c.lol)
+- `https://ndl.mnnx.cc/0z?url={原订阅链接}` (api-suc.0z.gs)
+- `https://ndl.mnnx.cc/{自定义后端地址}?url={原订阅链接}`
 
 https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Mannix_No_DNS_Leak.ini
 
-`https://mnnx.cc/config-nc-ndl`
+- `https://minndl.mnnx.cc/config`
+- `https://minndl.mnnx.cc/v1?url={原订阅链接}` (api.v1.mk)
+- `https://minndl.mnnx.cc/2c?url={原订阅链接}` (api.2c.lol)
+- `https://minndl.mnnx.cc/0z?url={原订阅链接}` (api-suc.0z.gs)
+- `https://minndl.mnnx.cc/{自定义后端地址}?url={原订阅链接}`
 
 和原配置只有一行差异：
 
