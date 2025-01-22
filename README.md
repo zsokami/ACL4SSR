@@ -1,3 +1,5 @@
+🎉船新项目：[ACL4SSR Mannix 订阅转换极速版](https://github.com/zsokami/cvt)
+
 ## ACL4SSR_Online_Full_Mannix.ini
 
 自定义 订阅转换 配置转换 规则转换 的远程配置：
@@ -67,9 +69,13 @@ https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Mannix_No_
 
 ---
 
-### V4
+### 性能优化 2
 
-性能优化：
+[ACL4SSR Mannix 订阅转换极速版](https://github.com/zsokami/cvt)
+
+`https://arx.cc/{原订阅链接}`
+
+### 性能优化 1
 
 原版订阅转换后端使用本配置时，若节点过多，转换速度很慢。
 
