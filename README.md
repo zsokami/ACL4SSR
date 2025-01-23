@@ -73,9 +73,11 @@ https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Mannix_No_
 
 ### 性能优化 2
 
-[ACL4SSR Mannix 订阅转换极速版](https://github.com/zsokami/cvt)
+🎉船新项目：[ACL4SSR Mannix 订阅转换极速版](https://github.com/zsokami/cvt)
 
-`https://arx.cc/{原订阅链接}`
+后端：`https://arx.cc/{原订阅链接}`
+
+前端：<https://sub.com.mp>
 
 ### 性能优化 1
 
