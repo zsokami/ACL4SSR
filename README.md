@@ -2,8 +2,6 @@
 
 ## ACL4SSR_Online_Full_Mannix.ini
 
-[<img src="https://api.gitsponsors.com/api/badge/img?id=549654581" height="20">](https://api.gitsponsors.com/api/badge/link?p=pr6qCfTme8e2CCbhuDS8Hkx/JTTbgiRQecJl/RFJSpXcOJ7E3FubyNTjk94vm2TV+anUDKI7JdNx2qOCbDqljcT8eC8px0dESd27Isy+dwNNv1cXRMUwdnkXw04mGJFb)
-
 自定义 订阅转换 配置转换 规则转换 的远程配置：
 
 https://raw.githubusercontent.com/zsokami/ACL4SSR/main/ACL4SSR_Online_Full_Mannix.ini
