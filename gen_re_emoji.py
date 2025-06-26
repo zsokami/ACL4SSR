@@ -128,7 +128,7 @@ re_emoji = r'''
 🇦🇩,AN?D,安道尔,Andorra
 🇲🇨,MCO?,摩纳哥,Monaco
 🇷🇼,RWA?,卢旺达,Rwanda
-🇹🇱,TLS?,东帝汶,Timor
+🇹🇱,TL,东帝汶,Timor
 🇦🇴,AG?O,安哥拉,Angola
 🇶🇦,QAT?,卡塔尔|多哈,Qatar|Doha
 🇱🇾,LB?Y,利比亚,Libya
