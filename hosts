@@ -3,7 +3,38 @@
 
 # 某些影视/动漫 APP 广告拦截规则
 
+0.0.0.0 trackgo.sigmob.cn
+0.0.0.0 tm.sigmob.cn
+0.0.0.0 gotrack.sigmob.cn
+0.0.0.0 devdoc.sigmob.cn
+0.0.0.0 qatool.sigmob.cn
+0.0.0.0 testn.sigmob.cn
+0.0.0.0 ssview.sigmob.cn
+0.0.0.0 dcv6.sigmob.cn
+0.0.0.0 adservice6.sigmob.cn
+0.0.0.0 adxtool.sigmob.cn
+0.0.0.0 tnaacc.sigmob.cn
+0.0.0.0 testtx.sigmob.cn
+0.0.0.0 tna.sigmob.cn
+0.0.0.0 s2s-track.sigmob.cn
+0.0.0.0 monitorfe.sigmob.cn
+0.0.0.0 n-viva.sigmob.cn
+0.0.0.0 sdkres.sigmob.cn
+0.0.0.0 m.sigmob.cn
+0.0.0.0 attrtools.sigmob.cn
+0.0.0.0 rtbcallback.sigmob.cn
+0.0.0.0 source-viva.sigmob.cn
+0.0.0.0 sdkt.sigmob.cn
+0.0.0.0 report.sigmob.cn
+0.0.0.0 bi.sigmob.cn
+0.0.0.0 track.sigmob.cn
+0.0.0.0 tracktp.sigmob.cn
+0.0.0.0 webstatic.sigmob.cn
+0.0.0.0 n.sigmob.cn
+0.0.0.0 adservice.sigmob.cn
+0.0.0.0 adstage.sigmob.cn
 0.0.0.0 dc.sigmob.cn
+0.0.0.0 dctest.sigmob.cn
 
 0.0.0.0 review.ugdtimg.com
 0.0.0.0 test-xj-landing.ugdtimg.com

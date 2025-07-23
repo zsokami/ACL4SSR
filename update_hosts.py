@@ -23,7 +23,7 @@ hosts = f'''127.0.0.1       localhost
 
 # 某些影视/动漫 APP 广告拦截规则
 
-0.0.0.0 dc.sigmob.cn
+{sub('sigmob.cn')}
 
 {sub('ugdtimg.com')}
 

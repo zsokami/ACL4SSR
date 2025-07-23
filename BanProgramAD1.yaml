@@ -1,7 +1,7 @@
 # 某些影视/动漫 APP 广告拦截规则
 
 payload:
-- DOMAIN,dc.sigmob.cn
+- DOMAIN-SUFFIX,sigmob.cn
 - DOMAIN,open.e.kuaishou.com
 - DOMAIN,open.e.kuaishou.cn
 - DOMAIN-SUFFIX,adkwai.com
