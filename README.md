@@ -1,4 +1,4 @@
-🎉**便宜实惠 AI 网关（API 中转站）推荐：[尚猫中心](https://shangmaozhongxin22.dpdns.org/) (基于开源项目 [New API](https://github.com/QuantumNous/new-api))**
+🎉**便宜实惠 AI 网关（API 中转站）推荐：[尚猫中心](https://shanmaoapi.com/) (基于开源项目 [New API](https://github.com/QuantumNous/new-api))**
 
 🎉船新项目：[ACL4SSR Mannix 订阅转换极速版](https://github.com/zsokami/cvt)
 
